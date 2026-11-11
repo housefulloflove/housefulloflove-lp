@@ -1,0 +1,67 @@
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Instrument+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  .phones{display:flex;gap:28px;flex-wrap:wrap;justify-content:center;align-items:flex-start;margin-top:18px}
+  .ph{width:375px;height:760px;overflow-y:auto;border:10px solid #1a1917;border-radius:38px;box-shadow:0 10px 30px rgba(0,0,0,.18);flex:none}
+  .col{display:flex;flex-direction:column;align-items:center}
+  .cap{width:375px;margin-top:10px}
+
+  /* shared: the original plain letter's paper, ink and blue links */
+  .X{background:#fdf3e7;color:#1a1917;padding:30px 22px 64px}
+  .X p{margin:0 0 14px}
+  .X a{color:#0b2bd6;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+  .X .foot{margin-top:40px;border-top:1px solid #ecdcc7;padding-top:14px}
+
+  /* original A */
+  .A{font-family:'Newsreader',Georgia,serif;font-size:19px;line-height:1.6}
+  .A h1{font-size:34px;line-height:1.1;margin:8px 0 4px;font-weight:600;letter-spacing:-.01em}
+  .A .by{font-style:italic;margin:0 0 26px}
+  .A h2{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin:34px 0 10px}
+  .A .small{font-family:'Instrument Sans',sans-serif;font-size:13px;color:#8b8a83}
+
+  /* A with C's fonts */
+  .N{font-family:'Instrument Sans',sans-serif;font-size:18px;line-height:1.65}
+  .N h1{font-family:'Young Serif',serif;font-weight:400;font-size:38px;line-height:1.06;letter-spacing:-.01em;margin:6px 0 10px}
+  .N .by{margin:0 0 26px}
+  .N h2{font-family:'Young Serif',serif;font-weight:400;font-size:22px;margin:36px 0 10px}
+  .N .small,.N .mono{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.06em;color:#8b8a83}
+</style>
+
+<h2>The original plain letter, with and without your fonts</h2>
+<p class="subtitle">Both use the original's warm paper and true blue links. Left is the original exactly; right swaps in Young Serif, Instrument Sans and Spline Mono.</p>
+
+<div class="phones">
+<div class="col">
+<div class="ph"><div class="X A">
+  <h1>House Full Of Love</h1>
+  <p class="by">Run by <a href="#">Naman Hajela</a>, from Indore, India.</p>
+  <p>We believe in doing things where everybody wins. For us to win nobody else has to lose.</p>
+  <h2>What we do</h2>
+  <p><a href="#">Happy Mornings Club</a>. A club that helps people wake up early and build a morning routine.</p>
+  <p><a href="#">Abandon Adulting Club</a>. Events and experiences that help people unlock play and enjoy life.</p>
+  <p>Also: educational workshops and courses, and software products and services.</p>
+  <h2>Everything else</h2>
+  <p>Every experiment and learning is on the <a href="#">blog</a>. What we believe is in <a href="#">the Core</a>.</p>
+  <p>Banks and platforms: <a href="#">business info</a>, with our registrations.</p>
+  <div class="foot small"><a href="#">Contact</a> · <a href="#">Terms</a> · <a href="#">Privacy</a> · <a href="#">Refunds</a><br>hello@housefulloflove.com</div>
+</div></div>
+<div class="cap"><div class="option" data-choice="original" onclick="toggleSelect(this)"><div class="letter">A</div><div class="content"><h3>Original plain letter</h3><p>Newsreader serif throughout, italic byline, small-caps headings.</p></div></div></div>
+</div>
+
+<div class="col">
+<div class="ph"><div class="X N">
+  <span class="mono">INDORE, INDIA</span>
+  <h1>House Full Of Love</h1>
+  <p class="by">Run by <a href="#">Naman Hajela</a>.</p>
+  <p>We believe in doing things where everybody wins. For us to win nobody else has to lose.</p>
+  <h2>What we do</h2>
+  <p><a href="#">Happy Mornings Club</a>. A club that helps people wake up early and build a morning routine.</p>
+  <p><a href="#">Abandon Adulting Club</a>. Events and experiences that help people unlock play and enjoy life.</p>
+  <p>Also educational workshops and courses, and software products and services.</p>
+  <h2>Everything else</h2>
+  <p>Every experiment and learning is on the <a href="#">blog</a>. What we believe is in <a href="#">the Core</a>.</p>
+  <p>Banks and platforms: <a href="#">business info</a> has our registrations.</p>
+  <div class="foot mono"><a href="#">Contact</a> · <a href="#">Terms</a> · <a href="#">Privacy</a> · <a href="#">Refunds</a><br>hello@housefulloflove.com</div>
+</div></div>
+<div class="cap"><div class="option" data-choice="merged" onclick="toggleSelect(this)"><div class="letter">B</div><div class="content"><h3>Plain letter, your fonts</h3><p>Same paper and blue links, your type system.</p></div></div></div>
+</div>
+</div>
