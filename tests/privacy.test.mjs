@@ -11,10 +11,19 @@ const FORBIDDEN = [
   [/\b[A-Z]{5}\d{4}[A-Z]\b/, "PAN-shaped string"],
   [/(?<![\w.])[6-9]\d{9}(?!\w)/, "Indian mobile number"],
   [/@gmail\.com/i, "personal Gmail"],
-  // (pattern removed from history)
-  [/\bREDACTED\b/, "home PIN code"],
-  // (pattern removed from history)
+  [/\b[A-Z]{4}0[A-Z0-9]{6}\b/, "bank IFSC-shaped string"],
 ];
+
+// Optional, untracked: one case-insensitive regex per line.
+const PRIVATE = ".superpowers/private-patterns.txt";
+if (existsSync(PRIVATE)) {
+  for (const l of readFileSync(PRIVATE, "utf8").split(/\r?\n/)) {
+    if (l.trim())
+      FORBIDDEN.push([new RegExp(l.trim(), "i"), "private pattern"]);
+  }
+} else {
+  console.log(`note: ${PRIVATE} absent, only generic patterns scanned`);
+}
 
 const SKIP_TRACKED =
   /(\.(png|jpe?g|gif|webp|ico|woff2?|otf|ttf|pdf)$|(^|\/)pnpm-lock\.yaml$|^tests\/privacy\.test\.mjs$|^docs\/superpowers\/)/i;

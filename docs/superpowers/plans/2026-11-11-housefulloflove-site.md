@@ -200,9 +200,7 @@ const FORBIDDEN = [
   [/\b[A-Z]{5}\d{4}[A-Z]\b/, "PAN-shaped string"],
   [/(?<![\w.])[6-9]\d{9}(?!\w)/, "Indian mobile number"],
   [/@gmail\.com/i, "personal Gmail"],
-  // (pattern removed from history)
-  [/\bREDACTED\b/, "home PIN code"],
-  // (pattern removed from history)
+  [/\b[A-Z]{4}0[A-Z0-9]{6}\b/, "bank IFSC-shaped string"],
 ];
 ```
 

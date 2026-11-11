@@ -54,6 +54,11 @@ The scan has two exclusions, because they quote the patterns:
 `tests/privacy.test.mjs` itself and `docs/superpowers/`. Real values were
 never written in either; keep it that way.
 
+For facts the generic formats cannot catch (the address, a PIN, a bank
+name), keep your own patterns in `.superpowers/private-patterns.txt`: one
+case-insensitive regex per line. The file is gitignored and optional; when
+it is absent the test logs a note and scans the generic formats only.
+
 ## Routes
 
 | Route | Source | What it is |
