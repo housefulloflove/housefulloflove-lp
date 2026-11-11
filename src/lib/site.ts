@@ -87,11 +87,13 @@ export const ventures = [
   },
 ] as const;
 
-export const areas = [
+export const areas: readonly { name: string; detail?: string }[] = [
   {
     name: "Events and experiences",
     detail: "Events, experiences, and clubs.",
   },
+  // Registered activity label (Gumasta); no description of his yet.
+  { name: "Educational workshops and courses" },
   {
     name: "Software products and services",
     // his words, 11 Oct (writing/2026-10-11-team.txt)

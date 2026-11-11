@@ -99,3 +99,8 @@ test("home JSON-LD names the business but no registration numbers", async () => 
   assert.ok(!("identifier" in org));
   assert.ok(!/•|INDO|UDYAM/.test(raw));
 });
+
+test("home lists education among what we do", async () => {
+  const { text } = await get("/");
+  assert.ok(text.includes("Educational workshops and courses"));
+});

@@ -105,7 +105,7 @@ export default function Home() {
       ))}
       {areas.map((a) => (
         <p key={a.name}>
-          {a.name}. {a.detail}
+          {a.name}.{a.detail && ` ${a.detail}`}
         </p>
       ))}
 
