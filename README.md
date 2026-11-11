@@ -112,16 +112,20 @@ extend the tests.
 2. Set DNS at the registrar as Vercel shows.
 3. Set up the inbox for `hello@housefulloflove.com` and
    `legal@housefulloflove.com`.
-4. Check `https://housefulloflove.com/business-info` on a phone.
-5. Tell Claude it's live: it merges and pushes the `redirect-to-housefulloflove`
+4. Fill every placeholder (`git grep -n "\[Placeholder" -- src` prints
+   nothing) and read the four legal pages (contact, terms, privacy,
+   refunds) plus the certificate wording on /business-info. This blocks
+   going live.
+5. Check `https://housefulloflove.com/business-info` on a phone.
+6. Tell Claude it's live: it merges and pushes the `redirect-to-housefulloflove`
    branches in pscompany-lp (`main`) and positivesumexperiments-lp
    (`master`). Each old Vercel project then serves only redirects.
-6. Update Meta and payment gateway business profiles to the new URL.
-7. Let positivesumcompany.com expire when ready.
+7. Update Meta and payment gateway business profiles to the new URL.
+8. Let positivesumcompany.com expire when ready.
 
 ### Dry-running the old-site redirects
 
-Before step 5, in each old repo on its `redirect-to-housefulloflove` branch,
+Before step 6, in each old repo on its `redirect-to-housefulloflove` branch,
 build and start it on port 3124 (`pnpm build && pnpm start -p 3124`). Then,
 from this repo:
 
