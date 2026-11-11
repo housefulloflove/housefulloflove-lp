@@ -2,7 +2,7 @@
 
 /* Plain letter, light only: no dark-scheme media rules anywhere. */
 :root {
-  color-scheme: light;
+  color-scheme: only light;
   --paper: #fdf3e7;
   --ink: #1a1917;
   --link: #0b2bd6;

@@ -6,7 +6,10 @@ test("home serves the name, light-only", async () => {
   const { status, text } = await get("/");
   assert.equal(status, 200);
   assert.ok(text.includes("House Full Of Love"));
-  assert.match(text, /<meta name="color-scheme" content="light"/);
+  assert.equal(
+    text.match(/<meta name="color-scheme" content="only light"/g)?.length,
+    1,
+  );
   assert.ok(!text.includes("prefers-color-scheme"));
   const sheets = [...text.matchAll(/href="([^"]+\.css[^"]*)"/g)];
   assert.ok(sheets.length > 0, "no stylesheet linked from /");
