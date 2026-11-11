@@ -17,7 +17,9 @@ The design is in `docs/superpowers/specs/2026-11-11-housefulloflove-site-design.
 - Tailwind CSS 4
 - MDX via `@next/mdx` for the written pages
 - Biome for lint + format
-- Deployed on Vercel (project `housefulloflove-lp`)
+- Hosted on Cloudflare Workers through the OpenNext adapter
+  (`@opennextjs/cloudflare`); config in `wrangler.jsonc` and
+  `open-next.config.ts`
 
 ## Develop
 
@@ -37,6 +39,30 @@ pnpm test       # all tests against a server you already started
 pnpm build && pnpm start -p 3200 &
 BASE_URL=http://localhost:3200 pnpm test
 ```
+
+### Cloudflare build and preview
+
+```bash
+pnpm preview   # opennextjs-cloudflare build + preview in the Workers runtime (port 8787)
+pnpm deploy    # build + deploy to your Cloudflare account; normally Workers Builds does this
+```
+
+`pnpm verify` stays on `next build` + `next start`, so the tests do not depend
+on the Workers runtime. To run them against the Worker, start `pnpm preview`
+and then `BASE_URL=http://127.0.0.1:8787 pnpm test`.
+
+Notes:
+
+- OpenNext warns that Windows is not fully supported. It builds and previews
+  here, but only with `node-linker=hoisted` (see `.npmrc`): with pnpm's default
+  symlinked `node_modules`, the OpenNext copy step fails with "Access is
+  denied". Linux/WSL work either way.
+- Every route is prerendered, and the Worker cannot read repo files at request
+  time, so `open-next.config.ts` serves the prerendered output from Workers
+  Static Assets (read-only, no R2 or KV). If you add ISR later, switch to the
+  R2 incremental cache.
+- `@opennextjs/cloudflare` and `wrangler` are pinned exactly. The adapter's
+  `next` peer range moves quickly, so bump Next and the adapter together.
 
 `.gitattributes` forces LF line endings, so Biome passes on Windows
 checkouts too.
@@ -107,36 +133,30 @@ extend the tests.
 
 ## Launch checklist (Naman)
 
-1. Create the Vercel project `housefulloflove-lp` from the GitHub repo and
-   add the domains `housefulloflove.com` and `www.housefulloflove.com`.
-2. Set DNS at the registrar as Vercel shows.
-3. Set up the inbox for `hello@housefulloflove.com` and
-   `legal@housefulloflove.com`.
+1. Push to GitHub.
+2. Cloudflare dashboard, Workers & Pages, create from the Git repo
+   `housefulloflove/housefulloflove-lp`. Build command
+   `pnpm exec opennextjs-cloudflare build`, deploy command
+   `pnpm exec opennextjs-cloudflare deploy`, production branch `main`.
+3. Attach custom domains `housefulloflove.com` and `www.housefulloflove.com`
+   to the Worker (proxied DNS records). The app redirects www to the apex
+   itself.
 4. Fill every placeholder (`git grep -n "\[Placeholder" -- src` prints
    nothing) and read the four legal pages (contact, terms, privacy,
    refunds) plus the certificate wording on /business-info. This blocks
    going live.
-5. Check `https://housefulloflove.com/business-info` on a phone.
-6. Tell Claude it's live: it merges and pushes the `redirect-to-housefulloflove`
-   branches in pscompany-lp (`main`) and positivesumexperiments-lp
-   (`master`). Each old Vercel project then serves only redirects.
-7. Update Meta and payment gateway business profiles to the new URL.
-8. Let positivesumcompany.com expire when ready.
+5. Set up the inbox for `hello@housefulloflove.com` and
+   `legal@housefulloflove.com`.
+6. Check `https://housefulloflove.com/business-info` on a phone.
+7. Add the old-domain redirect rules from `docs/cloudflare-redirects.md`.
+8. Run the live redirect tests listed in that file.
+9. Update Meta and payment gateway business profiles to the new URL.
+10. Remove the old Vercel projects.
+11. Let positivesumcompany.com expire when ready.
 
-### Dry-running the old-site redirects
-
-Before step 6, in each old repo on its `redirect-to-housefulloflove` branch,
-build and start it on port 3124 (`pnpm build && pnpm start -p 3124`). Then,
-from this repo:
-
-```bash
-OLD_BASE=http://localhost:3124 SITE=experiments node --test tests/old-redirects.test.mjs
-OLD_BASE=http://localhost:3124 SITE=company node --test tests/old-redirects.test.mjs
-```
-
-Use `SITE=experiments` against the experiments repo and `SITE=company`
-against pscompany. The test sets the Host header per path, since `fetch`
-cannot.
+The `redirect-to-housefulloflove` branches in pscompany-lp and
+positivesumexperiments-lp are no longer used (Cloudflare rules do the
+redirecting). Leave them unmerged; delete them when you decide to.
 
 ## Remaining placeholders
 

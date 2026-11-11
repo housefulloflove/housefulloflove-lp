@@ -34,7 +34,9 @@ test(
     assert.ok(rows, "OLD_BASE is set, so SITE must be experiments or company");
     for (const [path, location] of rows) {
       const res = await getOld(path);
-      assert.deepEqual(res, { status: 308, location }, path);
+      // Cloudflare Single Redirects answer 301; the old Next apps answered 308.
+      assert.ok([301, 308].includes(res.status), `${path}: ${res.status}`);
+      assert.equal(res.location, location, path);
     }
   },
 );
