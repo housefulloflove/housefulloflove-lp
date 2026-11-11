@@ -2,7 +2,14 @@ import type { MetadataRoute } from "next";
 import { site } from "@/lib/site";
 
 // Hand-kept; later tasks append their routes here.
-const routes: string[] = ["/"];
+const routes: string[] = [
+  "/",
+  "/contact",
+  "/terms",
+  "/privacy",
+  "/refunds",
+  "/team",
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
