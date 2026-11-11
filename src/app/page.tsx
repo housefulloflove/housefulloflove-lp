@@ -1,6 +1,124 @@
-import { site } from "@/lib/site";
+import type { Metadata } from "next";
+import {
+  areas,
+  author,
+  ids,
+  instagram,
+  linkedin,
+  location,
+  registrations,
+  site,
+  ventures,
+} from "@/lib/site";
 
-// Temporary: Task 4 replaces this with the home letter.
+export const metadata: Metadata = {
+  title: { absolute: site.name },
+  alternates: { canonical: "/" },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": ids.organization,
+      name: site.name,
+      url: site.url,
+      description: site.description,
+      email: site.email,
+      founder: { "@id": ids.person },
+      legalName: site.name,
+      foundingDate: registrations.udyam.incorporated,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Indore",
+        addressRegion: "Madhya Pradesh",
+        addressCountry: "IN",
+      },
+      sameAs: ["https://x.com/crazyxnaman", linkedin, instagram],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: site.email,
+        areaServed: "IN",
+        availableLanguage: "en",
+      },
+      subOrganization: ventures.map((v) => ({
+        "@type": "Organization",
+        name: v.name,
+        url: v.href,
+        description: v.description,
+        sameAs: [v.instagram],
+      })),
+    },
+    {
+      "@type": "WebSite",
+      "@id": ids.website,
+      name: site.name,
+      url: site.url,
+      inLanguage: site.language,
+      publisher: { "@id": ids.organization },
+    },
+    {
+      "@type": "Person",
+      "@id": ids.person,
+      name: author.name,
+      url: author.url,
+      email: author.email,
+      sameAs: author.sameAs,
+      worksFor: { "@id": ids.organization },
+    },
+  ],
+};
+
 export default function Home() {
-  return <h1>{site.name}</h1>;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: static JSON-LD from our own config
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <h1>{site.name}</h1>
+      <p>
+        <em>
+          Run by <a href={author.url}>{author.name}</a>, {location}.
+        </em>
+      </p>
+
+      {/* Naman's words, verbatim (writing/2026-09-30-company-page.txt) */}
+      <p>
+        House Full Of Love believes in doing things where everybody wins. For us
+        to win nobody else has to lose.
+      </p>
+      <p>
+        We run multiple ventures spanning events and experiences, software
+        products, and direct services.
+      </p>
+
+      <h2>What we do</h2>
+      {ventures.map((v) => (
+        <p key={v.name}>
+          <a href={v.href}>{v.name}</a>. {v.description}{" "}
+          <a href={v.instagram}>{v.instagramLabel}</a>
+        </p>
+      ))}
+      {areas.map((a) => (
+        <p key={a.name}>
+          {a.name}. {a.detail}
+        </p>
+      ))}
+
+      <h2>Everything else</h2>
+      <p>
+        <a href="/blog">Blog</a>
+        <br />
+        <a href="/core">The Core</a>
+        <br />
+        <a href="/team">Team</a>
+        <br />
+        <a href="/business-info">Business info</a>
+      </p>
+    </>
+  );
 }

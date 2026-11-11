@@ -81,3 +81,40 @@ test("unknown path is a plain 404", async () => {
   assert.equal(status, 404);
   assert.match(text, /href="\/"/);
 });
+
+test("home answers the four questions in order", async () => {
+  const { text: page } = await get("/");
+  // head meta also names the author and says "everybody wins"; order the body
+  const text = page.slice(page.indexOf("<h1>"));
+  const at = [
+    "<h1>House Full Of Love",
+    "Naman Hajela",
+    "everybody wins",
+    "Happy Mornings Club",
+    "Abandon Adulting Club",
+    'href="/blog"',
+    'href="/core"',
+  ].map((s) => text.indexOf(s));
+  assert.ok(
+    at.every((i) => i >= 0),
+    `missing: ${at}`,
+  );
+  assert.deepEqual(
+    at,
+    [...at].sort((a, b) => a - b),
+  );
+});
+
+test("home JSON-LD names the business but no registration numbers", async () => {
+  const { text } = await get("/");
+  const raw = text.match(
+    /<script type="application\/ld\+json">(.*?)<\/script>/s,
+  )[1];
+  const org = JSON.parse(raw)["@graph"].find(
+    (n) => n["@type"] === "Organization",
+  );
+  assert.equal(org.name, "House Full Of Love");
+  assert.equal(org.address.addressLocality, "Indore");
+  assert.ok(!("identifier" in org));
+  assert.ok(!/•|INDO|UDYAM/.test(raw));
+});
