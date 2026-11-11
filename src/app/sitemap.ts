@@ -8,6 +8,7 @@ const routes: string[] = [
   "/core",
   "/blog",
   ...posts.map((p) => p.path),
+  "/business-info",
   "/contact",
   "/terms",
   "/privacy",
