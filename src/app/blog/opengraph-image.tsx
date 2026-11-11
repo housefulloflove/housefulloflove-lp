@@ -9,7 +9,6 @@ export default function Image() {
   return ogImage({
     eyebrow: "Blog",
     title: "For us to win, no one has to lose.",
-    description:
-      "House Full Of Love is a venture by Naman Hajela, running experiments with fundamentals rooted in this positive sum philosophy.",
+    description: site.description,
   });
 }
