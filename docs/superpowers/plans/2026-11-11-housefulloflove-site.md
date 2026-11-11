@@ -608,3 +608,96 @@ const FORBIDDEN = [
 - [ ] **Step 2: Run `gh repo create Nhajela/housefulloflove-lp
   --<visibility> --source . --push`.** Report the URL and the README launch
   checklist.
+
+### Task 11: Host on Cloudflare instead of Vercel (Naman, 2026-11-11)
+
+All three domains already use Cloudflare DNS. The site is fully static, so it
+ships as Workers static assets. The old domains redirect through Cloudflare
+rules, not through the old Vercel projects. The old repos' redirect branches
+become unnecessary. Leave them unmerged; Naman decides whether to delete them.
+
+**Files:**
+- Modify: `next.config.ts`, `package.json`, `scripts/verify.mjs`,
+  `tests/pages.test.mjs` (www test), `README.md`
+- Create: `wrangler.jsonc`, `public/_headers` (if needed for content
+  types), `docs/cloudflare-redirects.md`
+
+**Interfaces:**
+- `pnpm build` produces a static export in `out/`.
+- `pnpm verify` builds, serves `out/` with `wrangler dev --port 3123`
+  (matching production asset handling), runs `node --test tests/*.test.mjs`
+  and stops. It still refuses a busy port.
+- `pnpm deploy` builds and runs `wrangler deploy`.
+  - Never run deploy in this task. Publishing waits for Naman's go-ahead.
+
+- [ ] **Step 1: Load the `wrangler` and `cloudflare` skills**, then read
+  the current Workers static-assets docs, `node_modules/next/dist/docs/` on
+  `output: "export"`, and its limits (redirects, route handlers, metadata
+  images, `next/image`).
+
+- [ ] **Step 2: Switch the build to a static export**
+  - In `next.config.ts`, set `output: "export"` and
+    `images: { unoptimized: true }`, and remove `redirects()`.
+  - www → apex becomes a Cloudflare rule, recorded in
+    `docs/cloudflare-redirects.md`.
+  - `pnpm build` must produce every current route:
+    - `/`, `/core`, `/core.md`, `/blog`
+    - `/blog/abandon-adulting-club` and its `.md` and `.json`
+    - `/feed.xml`, `/llms.txt`, `/robots.txt`, `/sitemap.xml`
+    - `/business-info`, `/contact`, `/terms`, `/privacy`, `/refunds`,
+      `/team`
+    - every OG image, and a 404 page
+
+- [ ] **Step 3: Write `wrangler.jsonc`**
+  - name `housefulloflove-lp`; assets directory `./out`;
+    `not_found_handling: "404-page"`
+  - a `compatibility_date` older than two weeks
+  - Use `public/_headers` so these serve with correct content types:
+    - `.md` as `text/markdown; charset=utf-8`
+    - `/feed.xml` as an RSS/XML type
+    - `/llms.txt` as `text/plain`
+    - extensionless OG image files as `image/png`
+  - No Worker script, unless a requirement can't be met with assets alone.
+    If so, say why in the report.
+
+- [ ] **Step 4: Port the harness**
+  - `verify.mjs` serves `out/` through `wrangler dev`.
+  - The www test in `pages.test.mjs` moves to a `LIVE_BASE`-gated test,
+    skipped by default, that checks
+    `https://www.housefulloflove.com/` → 308/301 → apex after launch.
+  - Every other existing test must pass unchanged in its assertions,
+    including privacy (now scanning `out/` instead of `.next/`, plus
+    `.next/` if present), and the content-type assertions.
+  - Run `pnpm verify` and `pnpm lint`; expect all PASS.
+
+- [ ] **Step 5: Write `docs/cloudflare-redirects.md`.** It holds the exact
+  Cloudflare Single Redirect rules (expression and target) for:
+  - `www.housefulloflove.com/*` → `https://housefulloflove.com/${1}`, 301
+  - `positivesumexperiments.com` and www:
+    - `/` → `https://housefulloflove.com/blog`
+    - everything else → same path on housefulloflove.com
+  - `positivesumcompany.com`, `thepositivesumcompany.com` and their www:
+    same path on housefulloflove.com
+  - After the rules are on, `tests/old-redirects.test.mjs` runs against
+    the live old domains: `OLD_BASE=https://positivesumexperiments.com
+    SITE=experiments`, and `OLD_BASE=https://positivesumcompany.com
+    SITE=company`. Status may be 301 or 308; widen the test to accept
+    either, keeping the exact `location` check.
+
+- [ ] **Step 6: Rewrite the README's Vercel parts for Cloudflare**
+  - Stack line, develop/deploy commands.
+  - Launch checklist:
+    1. `pnpm deploy` (first deploy, after Naman's go-ahead).
+    2. Attach the custom domain `housefulloflove.com` to the Worker.
+    3. Add the redirect rules from `docs/cloudflare-redirects.md`.
+    4. Set up the inbox.
+    5. Check `/business-info` on a phone.
+    6. Run the live redirect tests.
+    7. Update Meta and gateway profiles.
+    8. Remove the old Vercel projects.
+    9. Let positivesumcompany.com expire when ready.
+  - Mention the old repos' branches are unused.
+
+- [ ] **Step 7: Commit** as `build: static export on Cloudflare Workers
+  assets, redirects as Cloudflare rules`, splitting into atomic commits
+  where it separates cleanly.
