@@ -213,7 +213,7 @@ const FORBIDDEN = [
     - Scan `.next/server` and `.next/static` (`.html`, `.rsc`, `.body`,
       `.js`, `.json`, `.txt`) the same way.
     - Skip with a message if `.next/` is missing.
-  - Verify the test can fail: append `INDO123456SE123456` to a scratch
+  - Verify the test can fail: append a made-up string in Gumasta format (`INDO`, 6 digits, `SE`, 6 digits) to a scratch
     tracked file, run `node --test tests/privacy.test.mjs`, see FAIL, then
     remove it.
 
