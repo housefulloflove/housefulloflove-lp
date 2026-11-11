@@ -28,9 +28,10 @@ const getOld = async (path) => {
 test(
   "old site redirects to housefulloflove.com",
   {
-    skip: !OLD_BASE || !rows,
+    skip: !OLD_BASE,
   },
   async () => {
+    assert.ok(rows, "OLD_BASE is set, so SITE must be experiments or company");
     for (const [path, location] of rows) {
       const res = await getOld(path);
       assert.deepEqual(res, { status: 308, location }, path);
