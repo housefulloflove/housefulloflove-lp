@@ -31,11 +31,15 @@ const get = (path) =>
       .end();
   });
 
-test("old site redirects to housefulloflove.com", {
-  skip: !OLD_BASE || !rows,
-}, async () => {
-  for (const [path, location] of rows) {
-    const res = await get(path);
-    assert.deepEqual(res, { status: 308, location }, path);
-  }
-});
+test(
+  "old site redirects to housefulloflove.com",
+  {
+    skip: !OLD_BASE || !rows,
+  },
+  async () => {
+    for (const [path, location] of rows) {
+      const res = await get(path);
+      assert.deepEqual(res, { status: 308, location }, path);
+    }
+  },
+);
