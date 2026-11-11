@@ -40,7 +40,10 @@ branches prepared (not pushed) in both old repos.
   repo, only on `/business-info`; the full numbers, address, PAN and phone
   were never written anywhere, including plans and commits. A test enforces it.
 - **Never draft copy.** New sentences became visible `[Placeholder — …]`
-  markers instead of guesses; Naman's text was carried verbatim.
+  markers instead of guesses; Naman's home, core and blog text was carried
+  verbatim. The contact, terms, privacy and refunds pages are plumbing copied
+  from the old site, still DRAFT until he has read them (each says so in a
+  comment).
 - **Redirects last and unpushed.** Old sites keep working until the new one
   is confirmed live; the redirect branches have their own test.
 - **Small tasks, a review each, and a ledger** of rulings and deferred minors.

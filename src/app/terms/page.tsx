@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { author, location, site, ventures } from "@/lib/site";
 
+// Plumbing, not Naman's voice, so written plainly. DRAFT until he has read
+// it (11 Oct 2026). Covers this website only; each venture has its own.
+
 const description = "The terms for using housefulloflove.com.";
 
 export const metadata: Metadata = {

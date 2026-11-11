@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { author, location, site, ventures } from "@/lib/site";
 
+// Plumbing, not Naman's voice, so written plainly. DRAFT until he has read
+// it (11 Oct 2026). Each venture keeps its own contact page.
+
 const description = "How to reach House Full Of Love and each of its ventures.";
 
 export const metadata: Metadata = {

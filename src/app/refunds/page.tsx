@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
+// Plumbing, not Naman's voice, so written plainly. DRAFT until he has read
+// it (11 Oct 2026). Nothing is sold on this site; each venture's own terms
+// set its refunds. Happy Mornings Club's are in the "refunds" section of its
+// terms page (no anchor on that page, so the link goes to the page).
+
 const description =
   "Cancellations and refunds at House Full Of Love, and each venture's refund policy.";
 

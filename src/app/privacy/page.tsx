@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { author, location, site, ventures } from "@/lib/site";
 
+// The base privacy page: what this site itself does, then each venture's
+// own page. Plumbing, not Naman's voice, so written plainly. DRAFT until he
+// has read it (1 Oct 2026). The facts are checked against the code: no
+// forms, no cookies, no analytics, no third-party scripts.
+
 const description =
   "What housefulloflove.com collects, and where to find the privacy page of each venture.";
 
