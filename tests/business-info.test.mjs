@@ -1,23 +1,6 @@
 import assert from "node:assert/strict";
-import { request } from "node:http";
 import test from "node:test";
-
-const BASE = process.env.BASE_URL ?? "http://localhost:3123";
-
-function get(path) {
-  return new Promise((resolve, reject) => {
-    request(new URL(path, BASE), (res) => {
-      let text = "";
-      res.setEncoding("utf8");
-      res.on("data", (c) => {
-        text += c;
-      });
-      res.on("end", () => resolve({ status: res.statusCode, text }));
-    })
-      .on("error", reject)
-      .end();
-  });
-}
+import { get } from "./helpers.mjs";
 
 test("business info shows both registrations, masked", async () => {
   const { status, text } = await get("/business-info");

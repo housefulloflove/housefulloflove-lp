@@ -1,24 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-
-const BASE = process.env.BASE_URL ?? "http://localhost:3123";
-
-async function get(path) {
-  const url = new URL(path, BASE);
-  const { request } = await import("node:http");
-  return new Promise((resolve, reject) => {
-    request(url, (res) => {
-      let text = "";
-      res.setEncoding("utf8");
-      res.on("data", (c) => {
-        text += c;
-      });
-      res.on("end", () => resolve({ status: res.statusCode, text }));
-    })
-      .on("error", reject)
-      .end();
-  });
-}
+import { get } from "./helpers.mjs";
 
 test("legal and team pages carry over", async () => {
   for (const path of ["/contact", "/terms", "/privacy", "/refunds", "/team"]) {

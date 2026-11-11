@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
-import { request } from "node:http";
 import test from "node:test";
+import { get } from "./helpers.mjs";
 
 // Run against an old site: OLD_BASE=http://localhost:3124 SITE=experiments|company
 const { OLD_BASE, SITE } = process.env;
@@ -19,17 +19,11 @@ const rows = {
   ],
 }[SITE ?? ""];
 
-const get = (path) =>
-  new Promise((resolve, reject) => {
-    request(new URL(path, OLD_BASE), (res) => {
-      res.resume();
-      res.on("end", () =>
-        resolve({ status: res.statusCode, location: res.headers.location }),
-      );
-    })
-      .on("error", reject)
-      .end();
-  });
+// helpers.get takes an absolute URL too, so it can hit the old site.
+const getOld = async (path) => {
+  const res = await get(new URL(path, OLD_BASE).href);
+  return { status: res.status, location: res.headers.location };
+};
 
 test(
   "old site redirects to housefulloflove.com",
@@ -38,7 +32,7 @@ test(
   },
   async () => {
     for (const [path, location] of rows) {
-      const res = await get(path);
+      const res = await getOld(path);
       assert.deepEqual(res, { status: 308, location }, path);
     }
   },

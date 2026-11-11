@@ -1,26 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-
-const BASE = process.env.BASE_URL ?? "http://localhost:3123";
-
-async function get(path, headers = {}) {
-  const url = new URL(path, BASE);
-  const { request } = await import("node:http");
-  return new Promise((resolve, reject) => {
-    request(url, { headers }, (res) => {
-      let text = "";
-      res.setEncoding("utf8");
-      res.on("data", (c) => {
-        text += c;
-      });
-      res.on("end", () =>
-        resolve({ status: res.statusCode, headers: res.headers, text }),
-      );
-    })
-      .on("error", reject)
-      .end();
-  });
-}
+import { get } from "./helpers.mjs";
 
 test("core carries all eight, ending in Love before all", async () => {
   const page = await get("/core");
