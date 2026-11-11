@@ -1,0 +1,28 @@
+Naman, 11 Oct 2026, typed. Logged verbatim.
+Used for src/app/team/page.tsx.
+
+---
+we should add a team page
+
+with Me (Naman Hajela) and Simran Khanduja  for the team. Simran is Founding Member
+---
+
+What was changed, and by whom:
+- Names and roles as given. Naman's role reads "Founder", from his approved
+  home-page bio ("Naman Hajela is the founder.").
+- Naman's entry reuses the approved first paragraph of the home-page bio.
+- Simran has no bio or link yet: a bracketed placeholder stands until she or
+  Naman sends one.
+- No intro line under the heading; add one if he writes it.
+
+Follow-up, same day, his words, used verbatim as Simran's bio:
+"Simran is a creative generalist who contributes across strategy, marketing and operations. She's our golden retriever and good luck charm"
+(Added the closing full stop.)
+
+Follow-up, same day, on what we're building with Claude, his words:
+"clubs with digital online experiences and membership sites powering them where AI shall be used"
+Used as the "Software products and services" card on home and in llms.txt:
+"Clubs with digital online experiences and membership sites powering them, where AI shall be used."
+(Capitalised, comma before "where", full stop. Replaces the AI-written
+"Software products, and software services for clients.")
+Correction, same day: "shall be used" -> "could be used".

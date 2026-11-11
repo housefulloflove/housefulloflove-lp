@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* Plain letter, light only: no dark-scheme media rules anywhere. */
+:root {
+  color-scheme: light;
+  --paper: #fdf3e7;
+  --ink: #1a1917;
+  --link: #0b2bd6;
+  --muted: #8b8a83;
+  --rule: #ecdcc7;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.letter {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: 30px 22px 64px;
+  overflow-wrap: anywhere;
+}
+
+.letter p {
+  margin: 0 0 14px;
+}
+
+.letter a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.letter h1 {
+  font-size: 34px;
+  line-height: 1.1;
+  font-weight: 600;
+  margin: 8px 0 4px;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 40rem) {
+  .letter h1 {
+    font-size: 44px;
+  }
+}
+
+.letter h2 {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 34px 0 10px;
+}
+
+.letter .fine {
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.letter .foot {
+  margin-top: 40px;
+  border-top: 1px solid var(--rule);
+  padding-top: 14px;
+}

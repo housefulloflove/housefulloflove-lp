@@ -1,0 +1,49 @@
+Naman, 30 Sep 2026, dictated. Logged verbatim (typos and speech intact).
+Used for src/app/page.tsx and src/app/business-info/page.tsx.
+
+---
+Copy all the infra that has been made in Positive Sum Experiments LP into the fresh repo, which is PS Company LP.
+
+The only change we'll make is that in PS Company LP we will make a link called "blog" and that will go to positivesumexperiments.com. PS Company LP will actually serve positivesumcompany.com and positivesumcompany.com. These are the two domains that it will serve and it will be a simpler more direct description of Positive Sum Company.
+
+Because Positive Sum Experiments is more like a documentation site, Positive Sum Company will have no documentation per se, just the links to the projects: boxes or links to projects, same logo, mostly the same stuff. The commercial entity that I will incorporate, the sole proprietorship, will be named Positive Sum Company. On that page we will put all the details for different providers to be able to verify details.
+
+We will say, "Positive Sum Company believes in doing things where everybody wins. For us to win nobody else has to lose. We run multiple ventures spanning events and experiences, software products, and direct services."
+
+Then we go down and write, "In events and experiences, events, experiences, and clubs, here are the two ventures we are experimenting with."
+- Happy Mornings Club: put the link and the Instagram page of it and a description.
+- Abandon Adulting Club: put the link and the description there. Those are the two right now.
+
+In the future we can have more come in up here and you can put a little bit about me below that: Naman is the founder. He doesn't really like the word "founder" but it works when business talk happens. He looks at himself as an artist and a builder, and someone who wants to build a house full of love and products and experiences that truly benefit people and everyone in the ecosystem.
+
+Naman has also been the co-founder of KraftedX, which is a media company, agency thingy, media and tech business. Naman works as a tech advisor or something, whatever, as a technology partner for technityam.com. That's also part of the Positive Sum Company relationship and you can phrase this slightly better than I do. Of course try to make sure most things are verbatim and run this by me.
+
+And I will also attach the Happy Morning's Club landing page because, just as we have put business info there, this page is also to quickly verify business info. We will say that we'll put a business info page here as well and we'll put my name properly. We'll put that the city is Indore, Madhya Pradesh, but operations are online and in multiple cities across India. We will also link any other details, like contact, legal, and privacy, to the contact, legal, and privacy pages of all the other sites as well.
+---
+
+What was changed, and by whom:
+- Home headline "For us to win, nobody else has to lose." is the second sentence of his statement, used as the heading. Arranged, not reworded.
+- "In events and experiences, events, experiences, and clubs, here are..." became heading "Events and experiences" plus "Events, experiences, and clubs. Here are the two ventures we are experimenting with."
+- Happy Mornings Club description: its own site's line and call line, capitalised.
+- Abandon Adulting Club description: the opening line of his blog post, verbatim.
+- The "Naman" section is AI-phrased from his dictation at his request. DRAFT, awaiting his approval.
+
+Follow-up 2, same day: he asked the highlight to say events and experiences, software services, direct consultation and whatever services, direct B2B as well. Subtitle and the last two cards reworded to that (AI phrasing, his to correct).
+
+Follow-up, same day: he asked for a plainer title for banks and reviewers ("For us to win nobody else has to lose" is good for users, may not work for banks) and more visual clarity on what the company is and offers. Headline is now the company name with a factual line (who, what, where) drawn from his dictation, an at-a-glance strip, and a "What we do" row of the three areas he named. His philosophy lines stay verbatim directly under. The "software products" and "direct services" card blurbs are AI-written descriptors, and their status reads "Ventures to be added" until he names ventures.
+
+Follow-up 3, same day, his words: "And don't explain the thesis behind the things. Explain the things themselves. - Happy Mornings Club is a club that helps people wake up early and build a morning routine habit. - Abandon Adulting is an events and experiences company for adults to help them unlock play and enjoy in life, something like that, right? Simple." Also: no need to say sole proprietorship at the top of the landing page; two columns on phone too; experiment with layout, subtle illustration. Venture descriptions now use these, lightly arranged. Illustration is the existing drawn + mark and the marigold highlighter, no new SVG.
+
+Follow-up 4, 1 Oct, his edit of the bio's second paragraph: "Naman has also been the co-founder of KraftedX, a media .... remove 'that works as an agency'. and he contributes (rather than works) as a technology" ... "For him, all of this is also a part of the positive sum relationship, although they have no legal ties with each other". Applied as given. The first bio paragraph is approved ("this works").
+
+Follow-up 5, 1 Oct: "formal legal ties with our incorporation. Only ties are of love and abundance, xD!" and "link (KraftedX.com)". Applied: "...although they have no formal legal ties with our incorporation. The only ties are of love and abundance, xD!" (added "The" to make the sentence run; the rest as given). KraftedX links to kraftedx.com.
+
+1 Oct: he asked for a base privacy page linking to each venture's privacy page. /privacy is developer-written plumbing (his rule: legal pages are ours), facts checked against the code (no forms, cookies, analytics or third-party scripts; Vercel hosts). DRAFT until he reads it.
+
+1 Oct: hero line changed on his word: 'and direct consultation and other services, for individuals and businesses' -> 'and much more for individuals and businesses'.
+
+1 Oct: business-info intro replaced with his words, verbatim: "Yes we're real. This page was built for the banks, the AI verification agents, and any other wandering curious soul. You can find all the important details about us below."
+
+1 Oct: his words "An events and experiences company for adults, to help them unlock play and enjoy life." read as NSFW to him; he asked for better phrasing. Now: "An events and experiences company that helps people unlock play and enjoy life." (AI phrasing, his to correct.)
+
+1 Oct: correction to the intro: "soul" -> "souls" ("any other wandering curious souls.").
