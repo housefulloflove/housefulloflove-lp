@@ -18,7 +18,7 @@ const FORBIDDEN = [
 
 const SKIP_TRACKED =
   /(\.(png|jpe?g|gif|webp|ico|woff2?|otf|ttf|pdf)$|(^|\/)pnpm-lock\.yaml$|^tests\/privacy\.test\.mjs$|^docs\/superpowers\/)/i;
-const BUILD_EXT = /\.(html|rsc|body|txt|json)$/;
+const BUILD_EXT = /\.(html|rsc|body|js|json|txt)$/;
 
 function hits(file) {
   const text = readFileSync(file, "utf8");

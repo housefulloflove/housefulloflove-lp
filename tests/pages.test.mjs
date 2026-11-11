@@ -30,8 +30,11 @@ test("home serves the name, light-only", async () => {
   assert.ok(text.includes("House Full Of Love"));
   assert.match(text, /<meta name="color-scheme" content="light"/);
   assert.ok(!text.includes("prefers-color-scheme"));
-  for (const [, href] of text.matchAll(/href="([^"]+\.css[^"]*)"/g)) {
+  const sheets = [...text.matchAll(/href="([^"]+\.css[^"]*)"/g)];
+  assert.ok(sheets.length > 0, "no stylesheet linked from /");
+  for (const [, href] of sheets) {
     const css = await get(href);
+    assert.equal(css.status, 200, href);
     assert.ok(!css.text.includes("prefers-color-scheme"), href);
   }
 });

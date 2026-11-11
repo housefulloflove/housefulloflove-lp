@@ -7,6 +7,15 @@ const run = (args) =>
 
 if (run(["next", "build"]).status !== 0) process.exit(1);
 
+const busy = await fetch(`http://localhost:${PORT}/`).then(
+  () => true,
+  () => false,
+);
+if (busy) {
+  console.error(`Port ${PORT} is already answering; stop that server first.`);
+  process.exit(1);
+}
+
 const server = spawn("pnpm", ["exec", "next", "start", "-p", String(PORT)], {
   stdio: "inherit",
   shell: true,
