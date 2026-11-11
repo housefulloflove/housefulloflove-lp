@@ -127,7 +127,7 @@ and the father's name. So:
   legal@housefulloflove.com. Naman is setting up the inbox.
 
 **Never on the site** (Naman confirmed city and state only):
-- the residential address (on both certificates…)
+- the residential address (on both certificates)
 - PAN, bank details, phone number, the personal Gmail, the photo
 - the certificate PDFs themselves
 
