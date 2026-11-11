@@ -132,3 +132,11 @@ test("social metadata: site_name, url, large twitter card, real JSON-LD image", 
   const res = await get(new URL(img).pathname);
   assert.equal(res.status, 200, img);
 });
+
+test("fine-print links get a 24px tap area", async () => {
+  const { text } = await get("/");
+  let css = "";
+  for (const [, href] of text.matchAll(/href="([^"]+\.css[^"]*)"/g))
+    css += (await get(href)).text;
+  assert.ok(/\.fine a\{[^}]*padding:5px 0/.test(css), "no tap-area rule");
+});
