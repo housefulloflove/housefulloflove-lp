@@ -72,6 +72,11 @@ nothing. Rules:
 
 ## 5. The design system is small on purpose.
 
+> House Full Of Love: the pens, wobbly frame and Akriti design described
+> here belong to the old sites. This site uses the plain-letter look
+> (Newsreader, warm paper, blue links, light only); see the design spec in
+> `docs/superpowers/specs/`.
+
 Tokens live in `src/app/globals.css` and nowhere else: paper/ink/quiet/rule
 and four pens (cobalt annotates, red corrects, green validates, marigold
 highlights), a six-step spacing scale, a short type scale, four faces.
@@ -133,5 +138,6 @@ History should read as a changelog.
   inside `className`; the MDX→markdown stripper matches quoted attribute
   values for exactly this reason. If a new pattern leaks, fix the
   stripper, don't change the page.
-- **Line endings.** The repo is mixed CRLF/LF and Biome complains about
-  two untouched files. Run Biome on the files you changed, not `src/`.
+- **Line endings.** `.gitattributes` enforces LF, so Biome passes on
+  Windows checkouts and worktrees. If Biome complains about line endings,
+  re-checkout the files rather than reformatting.
