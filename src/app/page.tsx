@@ -14,6 +14,7 @@ import {
 export const metadata: Metadata = {
   title: { absolute: site.name },
   alternates: { canonical: "/" },
+  openGraph: { siteName: site.name, url: "/" },
 };
 
 const jsonLd = {

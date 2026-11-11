@@ -11,7 +11,13 @@ export const metadata: Metadata = {
   title: "Terms",
   description,
   alternates: { canonical: "/terms" },
-  openGraph: { type: "website", url: "/terms", title: "Terms", description },
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    url: "/terms",
+    title: "Terms",
+    description,
+  },
 };
 
 export default function Terms() {

@@ -104,3 +104,31 @@ test("home lists education among what we do", async () => {
   const { text } = await get("/");
   assert.ok(text.includes("Educational workshops and courses"));
 });
+
+test("social metadata: site_name, url, large twitter card, real JSON-LD image", async () => {
+  for (const p of [
+    "/",
+    "/blog",
+    "/core",
+    "/team",
+    "/blog/abandon-adulting-club",
+  ]) {
+    const { text } = await get(p);
+    assert.match(
+      text,
+      /<meta property="og:site_name" content="House Full Of Love"/,
+      p,
+    );
+    assert.match(text, /<meta property="og:url" content="https:\/\/[^"]+"/, p);
+    assert.match(
+      text,
+      /<meta name="twitter:card" content="summary_large_image"/,
+      p,
+    );
+  }
+  const post = await get("/blog/abandon-adulting-club");
+  const img = post.text.match(/"image":"([^"]+)"/)?.[1];
+  assert.ok(img, "no JSON-LD image");
+  const res = await get(new URL(img).pathname);
+  assert.equal(res.status, 200, img);
+});

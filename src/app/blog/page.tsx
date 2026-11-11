@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     canonical: "/blog",
     types: { "application/rss+xml": `${site.url}/feed.xml` },
   },
-  openGraph: { title: "Blog", description },
-  twitter: { title: "Blog", description },
+  openGraph: { siteName: site.name, url: "/blog", title: "Blog", description },
+  twitter: { card: "summary_large_image", title: "Blog", description },
 };
 
 const jsonLd = {

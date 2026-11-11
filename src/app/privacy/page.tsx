@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy" },
   openGraph: {
     type: "website",
+    siteName: site.name,
     url: "/privacy",
     title: "Privacy",
     description,

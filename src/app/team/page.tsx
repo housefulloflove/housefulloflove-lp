@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { author, ids, instagram, linkedin } from "@/lib/site";
+import { author, ids, instagram, linkedin, site } from "@/lib/site";
 
 const description = "The people who run House Full Of Love.";
 
@@ -7,7 +7,13 @@ export const metadata: Metadata = {
   title: "Team",
   description,
   alternates: { canonical: "/team" },
-  openGraph: { type: "website", url: "/team", title: "Team", description },
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    url: "/team",
+    title: "Team",
+    description,
+  },
 };
 
 const jsonLd = {

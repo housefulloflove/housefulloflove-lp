@@ -41,13 +41,19 @@ export function postMetadata(post: PostFacts): Metadata {
     },
     openGraph: {
       type: "article",
+      siteName: site.name,
+      url: post.path,
       title: post.title,
       description: post.description,
       publishedTime: post.date,
       modifiedTime: post.date,
       authors: [author.url],
     },
-    twitter: { title: post.title, description: post.description },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+    },
   };
 }
 
@@ -67,7 +73,7 @@ function jsonLd(post: PostFacts) {
         dateModified: post.date,
         inLanguage: site.language,
         url,
-        image: `${url}/opengraph-image`,
+        image: `${url}/opengraph-image.jpg`,
         author: { "@id": ids.person },
         publisher: { "@id": ids.organization },
         isPartOf: { "@id": `${site.url}/blog#blog` },
