@@ -23,8 +23,8 @@ const body = `# ${site.name}
 
 - Business name: ${site.name}
 - Entity type: sole proprietorship
-- Registration: ${gumasta.label}, ${gumasta.act}, issued ${gumasta.firstRegistered} and amended ${gumasta.amended} by the ${gumasta.office}. Verifiable at https://labour.mponline.gov.in
-- Registration: ${udyam.label}, ${udyam.enterpriseType} enterprise, registered ${udyam.registered}. Verifiable at https://udyamregistration.gov.in
+- Registration: ${gumasta.label}, ${gumasta.act}, issued ${gumasta.firstRegistered} and amended ${gumasta.amended} by the ${gumasta.office}.
+- Registration: ${udyam.label}, ${udyam.enterpriseType} enterprise, registered ${udyam.registered}.
 - Registered activities: ${gumasta.activities.join("; ")}
 - Proprietor: ${author.name}
 - Team: ${author.name} (Founder), Simran Khanduja (Founding Member)

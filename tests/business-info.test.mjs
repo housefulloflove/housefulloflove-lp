@@ -48,3 +48,10 @@ test("llms.txt names registrations without numbers", async () => {
   assert.ok(!/INDO|UDYAM-|•/.test(text));
   assert.ok(text.includes("https://housefulloflove.com/blog"));
 });
+
+test("no portal lookup links next to masked registrations", async () => {
+  for (const path of ["/llms.txt", "/business-info"]) {
+    const { text } = await get(path);
+    assert.ok(!/verifiable|mponline|udyamregistration/i.test(text), path);
+  }
+});
