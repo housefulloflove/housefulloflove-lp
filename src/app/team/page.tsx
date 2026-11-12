@@ -47,7 +47,7 @@ export default function Team() {
       />
       <h1>Team</h1>
 
-      <h2>{author.name}</h2>
+      <h2 className="name">{author.name}</h2>
       <p className="fine">Founder</p>
       <p>
         <a href={author.url}>Naman Hajela</a> is the founder. He doesn&rsquo;t
@@ -61,7 +61,7 @@ export default function Team() {
         <a href={instagram}>Instagram</a>
       </p>
 
-      <h2>Simran Khanduja</h2>
+      <h2 className="name">Simran Khanduja</h2>
       <p className="fine">Founding Member</p>
       <p>
         Simran is a creative generalist who contributes across strategy,
