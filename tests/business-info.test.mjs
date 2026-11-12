@@ -17,7 +17,7 @@ test("business info shows both registrations, masked", async () => {
     "85499",
     "63119",
     "Indore, Madhya Pradesh, India",
-    "[Placeholder",
+    "Full copies of both certificates are available on request",
   ]) {
     assert.ok(text.includes(s), `missing: ${s}`);
   }

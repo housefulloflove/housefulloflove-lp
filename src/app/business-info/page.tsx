@@ -95,8 +95,9 @@ export default function BusinessInfo() {
         {udyam.nic.map((n) => `${n.code} ${n.label}`).join("; ")}
       </p>
       <p>
-        [Placeholder — line saying full certificates are available to verifying
-        partners on request]
+        Full copies of both certificates are available on request to banks,
+        payment gateways and other verifying partners. Write to{" "}
+        {site.legalEmail}.
       </p>
 
       <h2>Ventures</h2>

@@ -160,11 +160,9 @@ redirecting). Leave them unmerged; delete them when you decide to.
 
 ## Remaining placeholders
 
-Output of `git grep -n "\[Placeholder" -- src`:
-
-```
-src/app/business-info/page.tsx:97:        [Placeholder — line saying full certificates are available to verifying
-```
+None. The last one, the certificates line on /business-info, was written by
+Claude on 2026-11-12 because Naman asked for that ("You can write this as you
+want"). It is the one AI-written reader-facing line on the site.
 
 ## More
 
