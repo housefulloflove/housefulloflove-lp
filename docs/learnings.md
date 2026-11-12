@@ -4,6 +4,49 @@ Entries newest first.
 
 ---
 
+## 2026-11-12 — spacing and hierarchy pass on the short pages
+
+**Result:** home, blog, team and the footer re-set so names and section
+labels read apart from the text under them. On home the belief line is a
+larger lede, each venture and area is a name on its own line with its
+description below, and "Run by Naman Hajela, Indore…" moved from line two to
+an italic sign-off at the bottom. No words changed, only order and setting.
+
+### What would have made it better
+
+1. **A test pinned the old reading order.** "home answers the four questions
+   in order" asserted the author straight after the h1, so the reorder Naman
+   asked for failed it. Order tests encode a design call; say which call in
+   the test name so it's obvious when the call changes.
+2. **`pnpm verify` never returned here.** With `shell: true`, `server.kill()`
+   stops the shell and leaves `next-server` on port 3123, so on Linux the
+   script hangs after the tests. Worked around by running
+   `node --test tests/*.test.mjs` against the left-over server and killing
+   it by hand. Worth fixing in `scripts/verify.mjs`.
+3. **`next dev` rewrites `AGENTS.md`.** Starting the dev server left an
+   uncommitted change to the Next agent-rules block; it is committed now.
+4. **Push was refused (403):** the Claude GitHub App has no access to this
+   repo for the organisation, so the commits stayed local in the session.
+
+### What went right, keep doing
+
+- **Two fresh readers, one per viewport, given screenshots and the
+  constraints (no rewording, no new colours).** They agreed without seeing
+  each other: byline before belief, run-in names ("Events and experiences.
+  Events, experiences, and clubs."), and section labels weaker than the body.
+- **Quiet label, loud name.** The uppercase h2 got smaller and grey with 56px
+  above it; the semibold names inside carry the hierarchy.
+- **`--muted` darkened** from #8b8a83 (about 3.2:1 on the paper) to #6b6a64.
+
+### Open threads
+
+- Blog order (letter, the Core, then posts) was left as his letter describes
+  it, though both readers wanted the posts higher.
+- Business info and contact were left alone apart from the shared label and
+  footer styles; the registration numbers could take semibold.
+
+---
+
 ## 2026-11-11 — housefulloflove.com built from two sites
 
 **Result:** a new site merged from pscompany-lp and positivesumexperiments-lp
