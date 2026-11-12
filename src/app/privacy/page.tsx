@@ -38,7 +38,7 @@ export default function Privacy() {
         scripts. We do not collect personal information from people who read it.
       </p>
       <p>
-        Like any website, our hosting provider, Vercel, receives technical
+        Like any website, our hosting provider, Cloudflare, receives technical
         details of each request, such as the IP address and browser type, to
         deliver the pages and keep them secure.
       </p>
