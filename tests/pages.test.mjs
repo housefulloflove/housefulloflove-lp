@@ -69,12 +69,13 @@ test("home answers the four questions in order", async () => {
   const text = page.slice(page.indexOf("<h1>"));
   const at = [
     "<h1>House Full Of Love",
-    "Naman Hajela",
     "everybody wins",
     "Happy Mornings Club",
     "Abandon Adulting Club",
     'href="/blog"',
     'href="/core"',
+    // who runs it and where is the sign-off, after everything else
+    "Naman Hajela",
   ].map((s) => text.indexOf(s));
   assert.ok(
     at.every((i) => i >= 0),

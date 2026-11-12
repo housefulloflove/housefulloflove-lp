@@ -6,7 +6,7 @@
   --paper: #fdf3e7;
   --ink: #1a1917;
   --link: #0b2bd6;
-  --muted: #8b8a83;
+  --muted: #6b6a64;
   --rule: #ecdcc7;
 }
 
@@ -26,8 +26,14 @@ body {
   overflow-wrap: anywhere;
 }
 
+@media (min-width: 40rem) {
+  .letter {
+    padding-top: 72px;
+  }
+}
+
 .letter p {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
 }
 
 .letter a {
@@ -41,8 +47,9 @@ body {
   font-size: 34px;
   line-height: 1.1;
   font-weight: 600;
-  margin: 8px 0 4px;
+  margin: 8px 0 18px;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 @media (min-width: 40rem) {
@@ -52,11 +59,108 @@ body {
 }
 
 .letter h2 {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin: 34px 0 10px;
+  color: var(--muted);
+  margin: 56px 0 18px;
+}
+
+/* The one line that says why: larger than the body, read first. */
+.letter .lede {
+  font-size: 23px;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+@media (min-width: 40rem) {
+  .letter .lede {
+    font-size: 25px;
+  }
+}
+
+/* A named thing: the name on its own line in semibold, what it is below,
+   any handle or role in fine print. The quiet uppercase h2 labels the
+   group; these names carry the hierarchy inside it. */
+.letter h3 {
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 600;
+  margin: 0 0 3px;
+}
+
+.letter .item {
+  margin-bottom: 26px;
+}
+
+.letter .item p {
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.letter .item p.fine {
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* The areas of work: smaller than the ventures, set apart by a gap. */
+.letter .areas {
+  margin-top: 40px;
+}
+
+.letter .areas .item {
+  margin-bottom: 16px;
+}
+
+.letter .areas h3 {
+  font-size: 17px;
+  margin-bottom: 1px;
+}
+
+.letter .areas .item p {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* A person on the team page: name in sentence case, larger than the bio. */
+.letter h2.name {
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  margin: 44px 0 2px;
+}
+
+.letter h2.name + .fine {
+  margin-bottom: 10px;
+}
+
+/* A short list of links, one per row, each row a full tap target. */
+.letter .links {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.letter .links a {
+  display: inline-block;
+  padding: 8px 0;
+}
+
+.letter .links .fine {
+  display: block;
+  margin-top: -6px;
+  padding-bottom: 6px;
+}
+
+.letter .signoff {
+  margin: 40px 0 0;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--muted);
 }
 
 .letter .fine {
@@ -69,6 +173,14 @@ body {
   margin-top: 40px;
   border-top: 1px solid var(--rule);
   padding-top: 14px;
+}
+
+.letter .foot a {
+  color: var(--muted);
+}
+
+.letter .foot a[href^="mailto:"] {
+  display: block;
 }
 
 /* 24px tap area for fine-print links; the negative margin keeps the look. */

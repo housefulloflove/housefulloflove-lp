@@ -81,14 +81,9 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <h1>{site.name}</h1>
-      <p>
-        <em>
-          Run by <a href={author.url}>{author.name}</a>, {location}.
-        </em>
-      </p>
 
       {/* Naman's words, verbatim (writing/2026-09-30-company-page.txt) */}
-      <p>
+      <p className="lede">
         House Full Of Love believes in doing things where everybody wins. For us
         to win nobody else has to lose.
       </p>
@@ -99,26 +94,44 @@ export default function Home() {
 
       <h2>What we do</h2>
       {ventures.map((v) => (
-        <p key={v.name}>
-          <a href={v.href}>{v.name}</a>. {v.description}{" "}
-          <a href={v.instagram}>{v.instagramLabel}</a>
-        </p>
+        <div className="item" key={v.name}>
+          <h3>
+            <a href={v.href}>{v.name}</a>
+          </h3>
+          <p>{v.description}</p>
+          <p className="fine">
+            <a href={v.instagram}>{v.instagramLabel}</a>
+          </p>
+        </div>
       ))}
-      {areas.map((a) => (
-        <p key={a.name}>
-          {a.name}.{a.detail && ` ${a.detail}`}
-        </p>
-      ))}
+      <div className="areas">
+        {areas.map((a) => (
+          <div className="item" key={a.name}>
+            <h3>{a.name}</h3>
+            {a.detail && <p>{a.detail}</p>}
+          </div>
+        ))}
+      </div>
 
       <h2>Everything else</h2>
-      <p>
-        <a href="/blog">Blog</a>
-        <br />
-        <a href="/core">The Core</a>
-        <br />
-        <a href="/team">Team</a>
-        <br />
-        <a href="/business-info">Business info</a>
+      <ul className="links">
+        <li>
+          <a href="/blog">Blog</a>
+        </li>
+        <li>
+          <a href="/core">The Core</a>
+        </li>
+        <li>
+          <a href="/team">Team</a>
+        </li>
+        <li>
+          <a href="/business-info">Business info</a>
+        </li>
+      </ul>
+
+      {/* Who and where comes last: a letter is signed at the bottom. */}
+      <p className="signoff">
+        Run by <a href={author.url}>{author.name}</a>, {location}.
       </p>
     </>
   );
