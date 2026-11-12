@@ -162,7 +162,9 @@ redirecting). Leave them unmerged; delete them when you decide to.
 
 None. The last one, the certificates line on /business-info, was written by
 Claude on 2026-11-12 because Naman asked for that ("You can write this as you
-want"). It is the one AI-written reader-facing line on the site.
+want"). The 404 page's words and design were also written by Claude at his
+request ("Make a funky 404 page that matches our ethos."). Those two are the
+only AI-written reader-facing text on the site.
 
 ## More
 

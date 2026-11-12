@@ -77,3 +77,81 @@ body {
   padding: 5px 0;
   margin: -5px 0;
 }
+
+/* 404: three tumbling digits, the zero drawn as an open door in link blue. */
+.letter .nf-code {
+  display: flex;
+  gap: 0.04em;
+  margin: 12px 0 18px;
+  font-size: 112px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.letter .nf-code span {
+  display: inline-block;
+  transition: transform 0.4s ease;
+}
+
+.letter .nf-code span:first-child {
+  transform: rotate(-8deg) translateY(4px);
+}
+
+.letter .nf-code span:last-child {
+  transform: rotate(6deg) translateY(-6px);
+}
+
+.letter .nf-code .nf-zero {
+  color: var(--link);
+  font-style: italic;
+  transform: rotate(-3deg);
+}
+
+.letter .nf-code:hover span {
+  transform: none;
+}
+
+.letter .nf-doors {
+  list-style: none;
+  padding: 0;
+  margin: 22px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.letter .nf-doors a {
+  display: inline-block;
+  padding: 14px 12px 6px;
+  font-size: 17px;
+  border: 1.5px solid var(--ink);
+  border-bottom-width: 3px;
+  border-radius: 1.6em 1.6em 2px 2px;
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.letter .nf-doors a:hover,
+.letter .nf-doors a:focus-visible {
+  border-color: var(--link);
+  color: var(--link);
+  transform: translateY(-3px);
+}
+
+@media (min-width: 40rem) {
+  .letter .nf-code {
+    font-size: 160px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter .nf-code span,
+  .letter .nf-doors a {
+    transition: none;
+  }
+}
