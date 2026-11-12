@@ -155,3 +155,76 @@ body {
     transition: none;
   }
 }
+
+/* Long-form pages (the Core, blog posts): the old sites' reading scale,
+   set in Newsreader. Display headings in sentence case instead of the
+   small uppercase labels the short pages use; more air between paragraphs;
+   quotes and asides step back. */
+.letter .prose h1 {
+  font-size: clamp(40px, 9vw, 64px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 40px 0 8px;
+}
+
+.letter .prose h2 {
+  font-size: clamp(27px, 6vw, 36px);
+  line-height: 1.15;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  margin: 52px 0 16px;
+  text-wrap: balance;
+}
+
+.letter .prose h3 {
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 32px 0 10px;
+}
+
+.letter .prose p,
+.letter .prose li {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.letter .prose p {
+  margin: 0 0 22px;
+}
+
+.letter .prose ul,
+.letter .prose ol {
+  margin-bottom: 22px;
+}
+
+.letter .prose li + li {
+  margin-top: 8px;
+}
+
+.letter .prose p + ul,
+.letter .prose p + ol {
+  margin-top: -10px;
+}
+
+.letter .prose blockquote {
+  border-left: 3px solid var(--link);
+  font-style: normal;
+  margin: 28px 0 32px;
+  padding-left: 18px;
+}
+
+.letter .prose blockquote p {
+  font-size: 16.5px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.letter .prose img {
+  margin: 28px 0;
+}
+
+.letter .prose .fine {
+  font-size: 13px;
+}

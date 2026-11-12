@@ -106,7 +106,7 @@ export function PostFrame({
   children: ReactNode;
 }) {
   return (
-    <article>
+    <article className="prose">
       <script
         type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: static JSON-LD from the post's own facts
