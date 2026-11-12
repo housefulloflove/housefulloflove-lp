@@ -82,12 +82,12 @@ export default function BlogPage() {
       <p>
         The wins, the failures, the learnings, all of it shared transparently.
       </p>
-      <p>
+      <p className="mt-6">
         <em>~ Nmn</em>
       </p>
 
       <h2>The Core</h2>
-      <ol className="mb-3.5 list-decimal pl-6">
+      <ol className="mb-3.5 list-decimal pl-6 [&>li+li]:mt-1.5">
         {corePrinciples.map((p) => (
           <li key={p}>{p}</li>
         ))}
@@ -97,13 +97,16 @@ export default function BlogPage() {
       </p>
 
       <h2>Posts</h2>
-      {posts.map((p) => (
-        <p key={p.path}>
-          <Link href={p.path}>{p.title}</Link>
-          <br />
-          <span className="fine">{p.dateLabel}</span>
-        </p>
-      ))}
+      <ul className="links">
+        {posts.map((p) => (
+          <li key={p.path}>
+            <Link href={p.path} className="font-semibold">
+              {p.title}
+            </Link>
+            <span className="fine">{p.dateLabel}</span>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
