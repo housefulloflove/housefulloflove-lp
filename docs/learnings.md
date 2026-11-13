@@ -97,3 +97,43 @@ branches prepared (not pushed) in both old repos.
   redirect branches.
 - The README placeholders need Naman's words.
 - Deferred minors and the logo/favicon are in `docs/future-changes.md`.
+
+## 2026-11-13 — home page restructured into the letter with rooms
+
+**What would have made it better**
+
+- The first three mockups (A, B, C) were one page at three spacings. He
+  rejected all of them in one line. When someone says "it doesn't feel
+  right", vary the structure between options, not the margins.
+- I answered "blob and too plain" with styling (D, E, F) before looking at
+  what the site says across pages. The real problem was the content split:
+  the company card on Home, his letter on Blog, the belief said three times.
+  Read every page before proposing a design for one.
+- I over-read "can the Core get expanded": added bold, then toggles. He
+  meant a hint for the curious, and wrote the line himself ("Click on any
+  one to read more about it."). Ask what a word means before building it.
+- Two mockup versions were sent without a browser check. The audit that
+  followed found the headline breaking as "no / one" and a zigzag
+  two-column list. Screenshot before sending, every time.
+
+**What went right**
+
+- Artifact comments worked as a review channel: he selected text in the
+  mockup and wrote "Not needed", and the cut was made from that.
+- The verifier question ("what does this company do?") was solved with a
+  letterhead: a grey line above the headline that a reader skips and a
+  bank reads first. The areas and the company paragraph moved to
+  /business-info.
+- The full-width tinted band is three CSS lines on `.band`
+  (box-shadow 100vmax + clip-path), no layout change.
+
+**Open threads**
+
+- The letterhead and "What we do" say nearly the same sentence. Slot for
+  Naman: one short line for the letterhead.
+- /blog is now a heading and one post. Slot: one line of his at the top.
+- Old-site redirect still sends the old "/" to /blog
+  (tests/old-redirects.test.mjs); the letter now lives on "/".
+- Core, posts and Team still end without onward links.
+- Push still fails with 403 until the Claude GitHub App has repo access.
+
