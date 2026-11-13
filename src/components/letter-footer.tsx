@@ -2,6 +2,8 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 const links = [
+  ["Blog", "/blog"],
+  ["Team", "/team"],
   ["Contact", "/contact"],
   ["Terms", "/terms"],
   ["Privacy", "/privacy"],
