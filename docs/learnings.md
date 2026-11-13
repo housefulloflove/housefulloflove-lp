@@ -137,3 +137,18 @@ branches prepared (not pushed) in both old repos.
 - Core, posts and Team still end without onward links.
 - Push still fails with 403 until the Claude GitHub App has repo access.
 
+### Later on 2026-11-13 — header, footer, Next band, image spotlight
+
+- My first-session change made `.letter h2` grey, which silently greyed
+  every heading on the Core and the post (`.prose h2` never set a colour).
+  It was live in screenshots for a day before I saw it. After changing a
+  base element style, screenshot every page type, not only the one being
+  worked on.
+- `.lbl` was sized by `.prose p` inside posts and the Core. A utility
+  class used inside `.prose` needs a selector that outranks `.prose p`.
+- Went right: `ZoomImage` wraps any image (post cover, MDX `img`) in a
+  button plus a native `<dialog>`; wheel, pinch and drag are about 60
+  lines with no library. Checked with Playwright: open, wheel, drag, Esc.
+- Open: pinch was not exercised in the browser check, only wheel and drag.
+  Blog opening line is a trim of his sentence; he may want his own.
+

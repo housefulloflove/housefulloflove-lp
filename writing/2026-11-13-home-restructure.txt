@@ -10,3 +10,11 @@ Cuts he made to the home letter (writing/2026-09-03-home-letter.txt), home page 
 Other calls: no location on the home page; no team section on the home page (a link is enough); no log on the home page (a link is enough); the Core's eight in one column, read in order, plain blue, no toggles; "Hi I'm Naman" at normal size.
 
 The letterhead line "Events and experiences, software products, and direct services" is cut from his company sentence (writing/2026-09-30-company-page.txt), not newly written.
+
+Later the same day, as comments on the second mockup (other pages):
+- "Homepage doesn't need these nav items here, it obstructs flow"
+- "Home doesn't need to be a link everywhere"
+- "I want all images to be tap to spotlight and then drag/scrool to zoom across pc and mobile"
+- On the blog's opening: "Suggest what all could be put here. I want to make this about positive sum and positive sum experiments as much as possible. In fact I would at some point want to call this page experiment log or something but that's just too long and restrictive"
+
+Blog opening now uses the two lines cut from the home letter. The first is trimmed from "Following which will come a log of all the experiments I run and things I do." to "A log of all the experiments I run and things I do." — flagged to him, built on his "Okay build it".
