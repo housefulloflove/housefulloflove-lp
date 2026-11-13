@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { author, location, registrations, site, ventures } from "@/lib/site";
+import {
+  areas,
+  author,
+  location,
+  registrations,
+  site,
+  ventures,
+} from "@/lib/site";
 
 const description = `Who runs ${site.name}, where it operates, and how to reach it.`;
 
@@ -53,6 +60,25 @@ export default function BusinessInfo() {
         verification agents, and any other wandering curious souls. You can find
         all the important details about us below.
       </p>
+
+      {/* Naman's words, verbatim (writing/2026-09-30-company-page.txt) */}
+      <h2>What we do</h2>
+      <p>
+        House Full Of Love believes in doing things where everybody wins. For us
+        to win nobody else has to lose.
+      </p>
+      <p>
+        We run multiple ventures spanning events and experiences, software
+        products, and direct services.
+      </p>
+      <div className="areas">
+        {areas.map((a) => (
+          <div className="item" key={a.name}>
+            <h3>{a.name}</h3>
+            {a.detail && <p>{a.detail}</p>}
+          </div>
+        ))}
+      </div>
 
       <h2>Details</h2>
       {details.map(([label, value]) => (
