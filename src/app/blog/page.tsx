@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { NextBand, next } from "@/components/next-band";
 import { ids, site } from "@/lib/site";
 import { posts } from "./posts";
 
@@ -46,16 +47,27 @@ export default function BlogPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <h1>Blog</h1>
-      <ul className="links">
+      {/* The two lines Naman cut from the home letter (13 Nov), which were
+          about this log. The first is trimmed of "Following which will
+          come", flagged to him before building. */}
+      <p>A log of all the experiments I run and things I do.</p>
+      <p>
+        The wins, the failures, the learnings, all of it shared transparently.
+      </p>
+      <ul className="posts">
         {posts.map((p) => (
           <li key={p.path}>
-            <Link href={p.path} className="font-semibold">
-              {p.title}
+            <Link href={p.path}>
+              <span className="lbl">
+                {p.eyebrow} · {p.dateLabel}
+              </span>
+              <strong>{p.heading}</strong>
+              <span>{p.description}</span>
             </Link>
-            <span className="fine">{p.dateLabel}</span>
           </li>
         ))}
       </ul>
+      <NextBand panels={[next.core, next.team]} />
     </>
   );
 }

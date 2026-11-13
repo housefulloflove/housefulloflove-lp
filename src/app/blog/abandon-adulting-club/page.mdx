@@ -1,3 +1,4 @@
+import { next } from "@/components/next-band";
 import { PostFrame, postMetadata } from "@/components/post-frame";
 import cover from "./cover.jpg";
 import { post } from "./post";
@@ -8,6 +9,7 @@ export default function Layout({ children }) {
   return (
     <PostFrame
       post={post}
+      next={[next.abandonAdulting, next.core]}
       cover={{ src: cover, alt: "Be a kid again — Abandon Adulting Club. Crayon doodles: stars, hearts, a spiral, a cloud." }}
     >
       {children}

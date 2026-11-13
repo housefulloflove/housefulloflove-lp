@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NextBand, next } from "@/components/next-band";
 import { author, ids, instagram, linkedin, site } from "@/lib/site";
 
 const description = "The people who run House Full Of Love.";
@@ -68,6 +69,7 @@ export default function Team() {
         marketing and operations. She&rsquo;s our golden retriever and good luck
         charm.
       </p>
+      <NextBand panels={[next.core, next.blog]} />
     </>
   );
 }

@@ -152,3 +152,24 @@ test("fine-print links get a 24px tap area", async () => {
     css += (await get(href)).text;
   assert.ok(/\.fine a\{[^}]*padding:5px 0/.test(css), "no tap-area rule");
 });
+
+test("header: links on every page but home; pages end by handing on", async () => {
+  const home = await get("/");
+  assert.ok(!/<header class="head">[\s\S]*?<nav>/.test(home.text), "nav on /");
+  for (const p of ["/blog", "/core", "/team", "/blog/abandon-adulting-club"]) {
+    const { text } = await get(p);
+    assert.match(text, /<header class="head"><a class="name" href="\/">/, p);
+    assert.match(text, /aria-current="page"/, p);
+    assert.match(text, /<nav class="band next" aria-label="Next">/, p);
+    const band = text.slice(text.indexOf('class="band next"'));
+    assert.ok(!/class="door"[^>]*href="\/"/.test(band), `${p} hands on to /`);
+  }
+});
+
+test("images open in the spotlight", async () => {
+  for (const p of ["/core", "/blog/abandon-adulting-club"]) {
+    const { text } = await get(p);
+    assert.match(text, /<button type="button" class="zoom-open"/, p);
+    assert.match(text, /<dialog class="zoom"/, p);
+  }
+});

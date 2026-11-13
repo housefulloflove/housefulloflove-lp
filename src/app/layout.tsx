@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Newsreader } from "next/font/google";
-import { HomeLink } from "@/components/home-link";
 import { LetterFooter } from "@/components/letter-footer";
+import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang={site.language} className={newsreader.variable}>
       <body>
         <div className="letter">
-          <HomeLink name={site.name} />
+          <SiteHeader name={site.name} />
           <main>{children}</main>
           <LetterFooter />
         </div>

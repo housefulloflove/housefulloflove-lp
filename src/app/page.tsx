@@ -110,10 +110,6 @@ export default function Home() {
           way. The descriptor is cut from Naman's company sentence. */}
       <header className="head">
         <h1>{site.name}</h1>
-        <nav>
-          <Link href="/blog">Blog</Link>
-          <Link href="/team">Team</Link>
-        </nav>
         <p>
           Events and experiences, software products, and direct services ·{" "}
           <Link href="/business-info">Business info</Link>

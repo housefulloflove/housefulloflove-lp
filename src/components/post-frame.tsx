@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image, { type StaticImageData } from "next/image";
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { author, ids, site } from "@/lib/site";
+import { NextBand } from "./next-band";
+import { ZoomImage } from "./zoom-image";
 
 // The frame around a blog post's writing: eyebrow, title, date, cover, the
 // way back to the Blog — plus the metadata
@@ -98,11 +99,14 @@ function jsonLd(post: PostFacts) {
 export function PostFrame({
   post,
   cover,
+  next,
   children,
 }: {
   post: PostFacts;
   /** A handmade cover, colocated with the post and statically imported. */
   cover?: { src: StaticImageData; alt: string };
+  /** The two panels the post hands the reader on to. */
+  next?: Parameters<typeof NextBand>[0]["panels"];
   children: ReactNode;
 }) {
   return (
@@ -113,27 +117,25 @@ export function PostFrame({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd(post)) }}
       />
       <header>
-        {post.eyebrow ? (
-          <p className="mb-0 italic text-[var(--muted)]">{post.eyebrow}</p>
-        ) : null}
-        <h1>{post.heading}</h1>
-        <p className="fine">
+        <p className="lbl">
+          {post.eyebrow ? `${post.eyebrow} · ` : null}
           <time dateTime={post.date}>{post.dateLabel}</time>
         </p>
+        <h1>{post.heading}</h1>
       </header>
       {cover ? (
-        <Image
-          src={cover.src}
-          alt={cover.alt}
-          priority
-          sizes="(max-width: 34rem) 100vw, 34rem"
-          className="my-4 h-auto w-full"
-        />
+        <ZoomImage src={cover.src.src} alt={cover.alt}>
+          <Image
+            src={cover.src}
+            alt={cover.alt}
+            priority
+            sizes="(max-width: 34rem) 100vw, 34rem"
+            className="my-4 h-auto w-full"
+          />
+        </ZoomImage>
       ) : null}
       {children}
-      <p className="fine foot">
-        <Link href="/blog">&larr; Blog</Link>
-      </p>
+      {next ? <NextBand panels={next} /> : null}
     </article>
   );
 }
