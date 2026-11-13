@@ -63,19 +63,21 @@ test("unknown path is a plain 404", async () => {
   assert.match(text, /href="\/"/);
 });
 
-test("home answers the four questions in order", async () => {
+test("home: letterhead, belief, letter, the eight, ventures, in order", async () => {
   const { text: page } = await get("/");
-  // head meta also names the author and says "everybody wins"; order the body
   const text = page.slice(page.indexOf("<h1>"));
   const at = [
     "<h1>House Full Of Love",
-    "everybody wins",
-    "Happy Mornings Club",
+    'href="/business-info"',
+    "no one has to lose.",
+    "running experiments with fundamentals",
+    "Click on any one to read more about it.",
+    'href="/core#1-play-positive-sum-games"',
+    'href="/core#8-love-before-all"',
+    "What we do",
     "Abandon Adulting Club",
-    'href="/blog"',
-    'href="/core"',
-    // who runs it and where is the sign-off, after everything else
-    "Naman Hajela",
+    'href="/blog/abandon-adulting-club"',
+    "Happy Mornings Club",
   ].map((s) => text.indexOf(s));
   assert.ok(
     at.every((i) => i >= 0),
@@ -85,6 +87,15 @@ test("home answers the four questions in order", async () => {
     at,
     [...at].sort((a, b) => a - b),
   );
+  const ol = text.match(/<ol[^>]*>([\s\S]*?)<\/ol>/);
+  assert.ok(ol, "no <ol>");
+  assert.equal((ol[1].match(/<li[ >]/g) ?? []).length, 8);
+});
+
+test("core headings carry the ids the home page links to", async () => {
+  const { text } = await get("/core");
+  assert.ok(text.includes('id="1-play-positive-sum-games"'));
+  assert.ok(text.includes('id="8-love-before-all"'));
 });
 
 test("home JSON-LD names the business but no registration numbers", async () => {
@@ -101,8 +112,8 @@ test("home JSON-LD names the business but no registration numbers", async () => 
   assert.ok(!/•|INDO|UDYAM/.test(raw));
 });
 
-test("home lists education among what we do", async () => {
-  const { text } = await get("/");
+test("business info lists education among what we do", async () => {
+  const { text } = await get("/business-info");
   assert.ok(text.includes("Educational workshops and courses"));
 });
 
