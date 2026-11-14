@@ -100,11 +100,6 @@ export const areas: readonly { name: string; detail?: string }[] = [
     detail:
       "Clubs with digital online experiences and membership sites powering them, where AI could be used.",
   },
-  {
-    name: "Consultation and direct services",
-    detail:
-      "Consultation and other services, direct to individuals and to businesses (B2B).",
-  },
 ] as const;
 
 /** Stable @ids so every page's JSON-LD points at the same three nodes. */
