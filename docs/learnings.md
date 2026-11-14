@@ -177,3 +177,8 @@ branches prepared (not pushed) in both old repos.
   reword; ask him. Slots for him: one line under "Software products and
   services" about the unnamed new product; one line on /team that he is
   full-time.
+- Later: Naman said "you can write on my behalf right now" for these
+  passages. Cut "and direct services" in all four places, added the
+  new-product sentence to the software area and "He works on House Full
+  Of Love full-time." on /team; each marked in a comment as written by
+  Claude at his request. Tests need `next start -p 3123` running first.
