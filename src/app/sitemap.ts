@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { posts } from "@/app/blog/posts";
+import { listed as posts } from "@/app/blog/posts";
 import { site } from "@/lib/site";
 
 // Hand-kept; later tasks append their routes here.

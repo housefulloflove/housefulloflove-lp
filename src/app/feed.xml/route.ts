@@ -1,4 +1,4 @@
-import { posts } from "@/app/blog/posts";
+import { listed as posts } from "@/app/blog/posts";
 import { author, site } from "@/lib/site";
 
 // RSS 2.0 for the blog, built from the same hardcoded post list as the

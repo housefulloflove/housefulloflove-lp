@@ -12,25 +12,12 @@ test("core carries all eight, ending in Love before all", async () => {
   assert.ok(md.text.includes("## 8. Love before all."));
 });
 
-test("blog home: letter, eight principles, posts, in order", async () => {
+test("blog home lists the posts", async () => {
   const { status, text } = await get("/blog");
   assert.equal(status, 200);
-  const marks = [
-    "running experiments with fundamentals",
-    "Play positive sum games.",
-    "Love before all.",
-    'href="/core"',
-    'href="/blog/abandon-adulting-club"',
-  ];
-  let last = -1;
-  for (const m of marks) {
-    const i = text.indexOf(m);
-    assert.ok(i > last, `${m} out of order or missing`);
-    last = i;
-  }
-  const ol = text.match(/<ol[^>]*>([\s\S]*?)<\/ol>/);
-  assert.ok(ol, "no <ol>");
-  assert.equal((ol[1].match(/<li[ >]/g) ?? []).length, 8);
+  assert.ok(text.includes("<h1>Blog</h1>"));
+  // Experiment 1 is hidden for now: reachable, but not listed
+  assert.ok(!text.includes('href="/blog/abandon-adulting-club"'));
 });
 
 test("post and its data views", async () => {
@@ -54,13 +41,10 @@ test("post and its data views", async () => {
   );
 });
 
-test("feed lists the post on the new domain", async () => {
+test("feed is on the new domain and leaves hidden posts out", async () => {
   const { status, text } = await get("/feed.xml");
   assert.equal(status, 200);
-  assert.ok(
-    text.includes(
-      "<link>https://housefulloflove.com/blog/abandon-adulting-club</link>",
-    ),
-  );
+  assert.ok(text.includes("https://housefulloflove.com"));
+  assert.ok(!text.includes("/blog/abandon-adulting-club"));
   assert.ok(text.includes("House Full Of Love"));
 });

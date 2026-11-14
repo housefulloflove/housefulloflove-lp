@@ -63,18 +63,20 @@ test("unknown path is a plain 404", async () => {
   assert.match(text, /href="\/"/);
 });
 
-test("home answers the four questions in order", async () => {
+test("home: letterhead, belief, letter, the eight, ventures, in order", async () => {
   const { text: page } = await get("/");
-  // head meta also names the author and says "everybody wins"; order the body
   const text = page.slice(page.indexOf("<h1>"));
   const at = [
     "<h1>House Full Of Love",
-    "Naman Hajela",
-    "everybody wins",
-    "Happy Mornings Club",
+    'href="/business-info"',
+    "no one has to lose.",
+    "running experiments with fundamentals",
+    "Click on any one to read more about it.",
+    'href="/core#1-play-positive-sum-games"',
+    'href="/core#8-love-before-all"',
+    "What we do",
     "Abandon Adulting Club",
-    'href="/blog"',
-    'href="/core"',
+    "Happy Mornings Club",
   ].map((s) => text.indexOf(s));
   assert.ok(
     at.every((i) => i >= 0),
@@ -84,6 +86,15 @@ test("home answers the four questions in order", async () => {
     at,
     [...at].sort((a, b) => a - b),
   );
+  const ol = text.match(/<ol[^>]*>([\s\S]*?)<\/ol>/);
+  assert.ok(ol, "no <ol>");
+  assert.equal((ol[1].match(/<li[ >]/g) ?? []).length, 8);
+});
+
+test("core headings carry the ids the home page links to", async () => {
+  const { text } = await get("/core");
+  assert.ok(text.includes('id="1-play-positive-sum-games"'));
+  assert.ok(text.includes('id="8-love-before-all"'));
 });
 
 test("home JSON-LD names the business but no registration numbers", async () => {
@@ -100,8 +111,8 @@ test("home JSON-LD names the business but no registration numbers", async () => 
   assert.ok(!/•|INDO|UDYAM/.test(raw));
 });
 
-test("home lists education among what we do", async () => {
-  const { text } = await get("/");
+test("business info lists education among what we do", async () => {
+  const { text } = await get("/business-info");
   assert.ok(text.includes("Educational workshops and courses"));
 });
 
@@ -139,4 +150,30 @@ test("fine-print links get a 24px tap area", async () => {
   for (const [, href] of text.matchAll(/href="([^"]+\.css[^"]*)"/g))
     css += (await get(href)).text;
   assert.ok(/\.fine a\{[^}]*padding:5px 0/.test(css), "no tap-area rule");
+});
+
+test("header: links on every page but home; pages end by handing on", async () => {
+  const home = await get("/");
+  assert.ok(!/<header class="head">[\s\S]*?<nav>/.test(home.text), "nav on /");
+  for (const p of ["/blog", "/core", "/team", "/blog/abandon-adulting-club"]) {
+    const { text } = await get(p);
+    assert.match(text, /<header class="head"><a class="name" href="\/">/, p);
+    assert.match(text, /aria-current="page"/, p);
+    // the blog's own index ends on its list; every other page hands on
+    if (p === "/blog") {
+      assert.ok(!text.includes('class="band next"'), "Next band on /blog");
+      continue;
+    }
+    assert.match(text, /<nav class="band next" aria-label="Next">/, p);
+    const band = text.slice(text.indexOf('class="band next"'));
+    assert.ok(!/class="door"[^>]*href="\/"/.test(band), `${p} hands on to /`);
+  }
+});
+
+test("images open in the spotlight", async () => {
+  for (const p of ["/core", "/blog/abandon-adulting-club"]) {
+    const { text } = await get(p);
+    assert.match(text, /<button type="button" class="zoom-open"/, p);
+    assert.match(text, /<dialog class="zoom"/, p);
+  }
 });

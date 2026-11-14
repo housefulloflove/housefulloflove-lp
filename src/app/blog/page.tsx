@@ -1,25 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ids, site } from "@/lib/site";
-import { posts } from "./posts";
+import { listed as posts } from "./posts";
 
-// The blog home. Hardcoded on purpose: the letter, the Core's eight, then
-// the posts from posts.ts. Naman's words, verbatim
-// (writing/2026-09-03-home-letter.txt; the Core headings are src/app/core/page.mdx).
+// The blog home: just the posts from posts.ts. The letter and the Core's
+// eight moved to the home page (13 Nov).
 const description = site.description;
-
-// The seven headings of src/app/core/page.mdx, then the eighth. Update here
-// when a value is added there.
-const corePrinciples = [
-  "Play positive sum games.",
-  "Respect time above all else.",
-  "Strive to give out disproportionate value.",
-  "Have audacious intent, and patient persistence.",
-  "Play with the power laws.",
-  "Compounding shall be your best friend.",
-  "Sincerity over Seriousness",
-  "Love before all.",
-];
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -59,51 +45,34 @@ export default function BlogPage() {
         // biome-ignore lint/security/noDangerouslySetInnerHtml: static JSON-LD from the hardcoded post list
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <h1>For us to win, no one has to lose.</h1>
-      <p>
-        Hi I&rsquo;m <a href="https://namanhajela.com">Naman</a>, and I&rsquo;m
-        running experiments with fundamentals rooted in this positive sum
-        philosophy.
-      </p>
-      <p>
-        My goal is to enable everyone involved in each of my initiatives, the
-        customers of course, my team, myself, and the wider world.
-      </p>
-      <p>
-        I shall document my learnings and journey here as a giveback for the
-        world.
-      </p>
-      <p>
-        I have a few core principles I want to build this on top of,
-        they&rsquo;re listed below. Read them first to understand how we
-        operate. Following which will come a log of all the experiments I run
-        and things I do.
-      </p>
+      <h1>Blog</h1>
+      {/* The two lines Naman cut from the home letter (13 Nov), which were
+          about this log. The first is trimmed of "Following which will
+          come", flagged to him before building. */}
+      <p>A log of all the experiments I run and things I do.</p>
       <p>
         The wins, the failures, the learnings, all of it shared transparently.
       </p>
-      <p>
-        <em>~ Nmn</em>
-      </p>
-
-      <h2>The Core</h2>
-      <ol className="mb-3.5 list-decimal pl-6">
-        {corePrinciples.map((p) => (
-          <li key={p}>{p}</li>
-        ))}
-      </ol>
-      <p>
-        <Link href="/core">Read the Core</Link>
-      </p>
-
-      <h2>Posts</h2>
-      {posts.map((p) => (
-        <p key={p.path}>
-          <Link href={p.path}>{p.title}</Link>
-          <br />
-          <span className="fine">{p.dateLabel}</span>
-        </p>
-      ))}
+      {/* Stand-in while nothing is listed. Wording follows Naman's note
+          ("hey x coming soon simply", 14 Nov); his to reword. */}
+      {posts.length === 0 && (
+        <p className="soon">Hey, the first post is coming soon.</p>
+      )}
+      {posts.length > 0 && (
+        <ul className="posts">
+          {posts.map((p) => (
+            <li key={p.path}>
+              <Link href={p.path}>
+                <span className="lbl">
+                  {p.eyebrow} · {p.dateLabel}
+                </span>
+                <strong>{p.heading}</strong>
+                <span>{p.description}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 }

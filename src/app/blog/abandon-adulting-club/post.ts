@@ -13,5 +13,8 @@ export const post = {
     "When we were kids, we had a lot of fundamentals right. As we became adults, we lost touch of them.",
   date: "2026-09-03",
   dateLabel: "3 Sep 2026",
+  // Hidden for now (Naman, 14 Nov): the page still works at its URL, but
+  // the blog, the feed, the sitemap and the home page do not link to it.
+  hidden: true,
   tags: ["experiment", "abandon-adulting-club"],
 } as const;

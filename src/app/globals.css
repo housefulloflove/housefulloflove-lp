@@ -6,8 +6,9 @@
   --paper: #fdf3e7;
   --ink: #1a1917;
   --link: #0b2bd6;
-  --muted: #8b8a83;
+  --muted: #6b6a64;
   --rule: #ecdcc7;
+  --tint: #f7e6cf;
 }
 
 body {
@@ -26,8 +27,14 @@ body {
   overflow-wrap: anywhere;
 }
 
+@media (min-width: 40rem) {
+  .letter {
+    padding-top: 72px;
+  }
+}
+
 .letter p {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
 }
 
 .letter a {
@@ -41,8 +48,9 @@ body {
   font-size: 34px;
   line-height: 1.1;
   font-weight: 600;
-  margin: 8px 0 4px;
+  margin: 8px 0 18px;
   letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 @media (min-width: 40rem) {
@@ -52,11 +60,270 @@ body {
 }
 
 .letter h2 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 56px 0 18px;
+}
+
+/* Home letterhead: name, two links, and one grey line saying what the
+   company does. Read as a frame, not as part of the letter. */
+.letter .head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px 20px;
+  align-items: baseline;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 14px;
+  margin-bottom: 44px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.letter .head h1 {
+  color: var(--ink);
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.letter .head .name {
+  color: var(--ink);
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin: 34px 0 10px;
+  text-decoration: none;
+}
+
+.letter .head nav {
+  display: flex;
+  gap: 20px;
+  font-size: 16px;
+}
+
+.letter .head nav a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1.5px solid transparent;
+}
+
+.letter .head nav a[aria-current="page"] {
+  border-bottom-color: var(--ink);
+}
+
+.letter .head nav a:hover {
+  color: var(--link);
+}
+
+/* On a phone the name and the three links share one row. */
+@media (max-width: 40rem) {
+  .letter .head .name {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  .letter .head nav {
+    gap: 14px;
+    font-size: 15px;
+  }
+}
+
+.letter .head p {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.letter .head a {
+  color: var(--muted);
+  display: inline-block;
+  padding: 5px 0;
+  margin: -5px 0;
+}
+
+/* The belief, said once, as the headline. */
+.letter .belief {
+  font-size: clamp(34px, 8.4vw, 52px);
+  line-height: 1.08;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 40px;
+}
+
+/* A tinted room that runs the full width of the screen. */
+.letter .band {
+  background: var(--tint);
+  box-shadow: 0 0 0 100vmax var(--tint);
+  clip-path: inset(0 -100vmax);
+  margin: 52px 0 0;
+  padding: 48px 0 36px;
+}
+
+.letter .band h2 {
+  margin-top: 0;
+}
+
+.letter .hint {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+/* The eight, in order, one per row. */
+.letter .core {
+  list-style: none;
+  counter-reset: core;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.letter .core li {
+  counter-increment: core;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.letter .core li::before {
+  content: counter(core);
+  color: var(--muted);
+  font-size: 14px;
+  min-width: 1ch;
+}
+
+.letter .core a {
+  text-decoration: none;
+  padding: 5px 0;
+}
+
+.letter .core a:hover {
+  text-decoration: underline;
+}
+
+/* The ventures: two panels side by side, stacked on a phone. */
+.letter .doors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.letter .door {
+  background: var(--tint);
+  border-radius: 6px;
+  padding: 22px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.letter .door h3 {
+  font-size: 24px;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.letter .door p {
+  font-size: 16px;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.letter .door .go {
+  margin-top: auto;
+  padding-top: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.letter .door .go a {
+  padding: 4px 0;
+}
+
+/* Core sections are link targets from the home page. */
+.letter h2[id] {
+  scroll-margin-top: 24px;
+}
+
+/* A named thing: the name on its own line in semibold, what it is below,
+   any handle or role in fine print. The quiet uppercase h2 labels the
+   group; these names carry the hierarchy inside it. */
+.letter h3 {
+  font-size: 21px;
+  line-height: 1.3;
+  font-weight: 600;
+  margin: 0 0 3px;
+}
+
+.letter .item {
+  margin-bottom: 26px;
+}
+
+.letter .item p {
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.letter .item p.fine {
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+/* The areas of work: smaller than the ventures, set apart by a gap. */
+.letter .areas {
+  margin-top: 40px;
+}
+
+.letter .areas .item {
+  margin-bottom: 16px;
+}
+
+.letter .areas h3 {
+  font-size: 17px;
+  margin-bottom: 1px;
+}
+
+.letter .areas .item p {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+/* A person on the team page: name in sentence case, larger than the bio. */
+.letter h2.name {
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+  margin: 44px 0 2px;
+}
+
+.letter h2.name + .fine {
+  margin-bottom: 10px;
+}
+
+/* A short list of links, one per row, each row a full tap target. */
+.letter .links {
+  list-style: none;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.letter .links a {
+  display: inline-block;
+  padding: 8px 0;
+}
+
+.letter .links .fine {
+  display: block;
+  margin-top: -6px;
+  padding-bottom: 6px;
 }
 
 .letter .fine {
@@ -66,9 +333,44 @@ body {
 }
 
 .letter .foot {
-  margin-top: 40px;
+  margin-top: 56px;
   border-top: 1px solid var(--rule);
-  padding-top: 14px;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px 32px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.letter .foot strong {
+  display: block;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.letter .foot p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 16px;
+  margin: 0 0 4px;
+}
+
+.letter .foot a {
+  color: var(--muted);
+}
+
+.letter .foot .pages a {
+  color: var(--ink);
+}
+
+/* A page that ends in the Next band runs straight into the footer. */
+.letter main:has(.next) + .foot {
+  margin-top: 0;
+  border-top: 0;
 }
 
 /* 24px tap area for fine-print links; the negative margin keeps the look. */
@@ -173,6 +475,7 @@ body {
   font-weight: 600;
   letter-spacing: -0.01em;
   text-transform: none;
+  color: var(--ink);
   margin: 52px 0 16px;
   text-wrap: balance;
 }
@@ -227,4 +530,171 @@ body {
 
 .letter .prose .fine {
   font-size: 13px;
+}
+
+/* The quiet uppercase label, for things that aren't headings. */
+.letter .lbl,
+.letter .prose p.lbl {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+  margin: 0 0 10px;
+}
+
+/* The blog's list: one row per post, the whole row a link. */
+.letter .posts {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.letter .posts a {
+  display: block;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.letter .posts .lbl {
+  margin-bottom: 4px;
+}
+
+.letter .posts strong {
+  display: block;
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.letter .posts a:hover strong {
+  color: var(--link);
+}
+
+/* The Next band: two paper panels on the tint, each a whole link. */
+.letter .next {
+  margin-top: 64px;
+  padding-bottom: 48px;
+}
+
+.letter .next .doors {
+  margin-top: 16px;
+}
+
+.letter .next .door {
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  gap: 6px;
+  padding: 18px 18px 16px;
+}
+
+.letter .next .door strong {
+  font-size: 21px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.letter .next .door span {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.letter .next .door:hover strong {
+  color: var(--link);
+}
+
+/* A numbered Core heading: the number as a small label above the title. */
+.letter .prose h2 small {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* The Core's two opening lines, set as its epigraph. */
+.letter .prose > div + blockquote {
+  border: 0;
+  padding: 0;
+  margin: 20px 0 28px;
+}
+
+.letter .prose > div + blockquote p {
+  font-size: 23px;
+  line-height: 1.35;
+  font-style: italic;
+  color: var(--ink);
+}
+
+/* Any image: a button that opens it in the spotlight. */
+.zoom-open {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.zoom {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgb(20 19 17 / 0.94);
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: contain;
+}
+
+.zoom[open] {
+  display: grid;
+  place-items: center;
+}
+
+.zoom::backdrop {
+  background: rgb(20 19 17 / 0.94);
+}
+
+.zoom img {
+  max-width: 94vw;
+  max-height: 88dvh;
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
+}
+
+.zoom-close {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top));
+  right: 16px;
+  padding: 8px 14px;
+  border: 1px solid rgb(253 243 231 / 0.5);
+  border-radius: 999px;
+  background: rgb(20 19 17 / 0.6);
+  color: #fdf3e7;
+  font:
+    14px ui-sans-serif,
+    system-ui,
+    sans-serif;
+  cursor: pointer;
+}
+
+/* The blog's stand-in line while no post is listed: body face, quieter. */
+.letter .soon {
+  margin-top: 32px;
+  color: var(--muted);
+  font-style: italic;
 }
