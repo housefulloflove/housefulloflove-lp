@@ -24,6 +24,8 @@ export type PostFacts = {
   /** ISO date, YYYY-MM-DD. */
   date: string;
   dateLabel: string;
+  /** Built and reachable, but not listed anywhere. */
+  hidden?: boolean;
   /** Free-form, lowercase. Unused by any page today; there for the day an
    *  index by tag or by month is wanted — that's a filter over posts.ts. */
   tags: readonly string[];

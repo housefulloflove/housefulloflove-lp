@@ -4,3 +4,6 @@ import { post as abandonAdultingClub } from "./abandon-adulting-club/post";
 // index, the feed and the blog's JSON-LD read this list, and a new post is
 // added by importing its post.ts and putting it at the top.
 export const posts = [abandonAdultingClub];
+
+// What the blog, the feed and the sitemap show: everything not hidden.
+export const listed = posts.filter((p) => !("hidden" in p && p.hidden));

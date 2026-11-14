@@ -76,7 +76,6 @@ test("home: letterhead, belief, letter, the eight, ventures, in order", async ()
     'href="/core#8-love-before-all"',
     "What we do",
     "Abandon Adulting Club",
-    'href="/blog/abandon-adulting-club"',
     "Happy Mornings Club",
   ].map((s) => text.indexOf(s));
   assert.ok(

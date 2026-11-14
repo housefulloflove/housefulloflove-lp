@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { NextBand, next } from "@/components/next-band";
 import { ids, site } from "@/lib/site";
-import { posts } from "./posts";
+import { listed as posts } from "./posts";
 
 // The blog home: just the posts from posts.ts. The letter and the Core's
 // eight moved to the home page (13 Nov).
@@ -54,19 +54,21 @@ export default function BlogPage() {
       <p>
         The wins, the failures, the learnings, all of it shared transparently.
       </p>
-      <ul className="posts">
-        {posts.map((p) => (
-          <li key={p.path}>
-            <Link href={p.path}>
-              <span className="lbl">
-                {p.eyebrow} · {p.dateLabel}
-              </span>
-              <strong>{p.heading}</strong>
-              <span>{p.description}</span>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {posts.length > 0 && (
+        <ul className="posts">
+          {posts.map((p) => (
+            <li key={p.path}>
+              <Link href={p.path}>
+                <span className="lbl">
+                  {p.eyebrow} · {p.dateLabel}
+                </span>
+                <strong>{p.heading}</strong>
+                <span>{p.description}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
       <NextBand panels={[next.core, next.team]} />
     </>
   );

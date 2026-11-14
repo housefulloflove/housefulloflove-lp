@@ -16,7 +16,8 @@ test("blog home lists the posts", async () => {
   const { status, text } = await get("/blog");
   assert.equal(status, 200);
   assert.ok(text.includes("<h1>Blog</h1>"));
-  assert.ok(text.includes('href="/blog/abandon-adulting-club"'));
+  // Experiment 1 is hidden for now: reachable, but not listed
+  assert.ok(!text.includes('href="/blog/abandon-adulting-club"'));
 });
 
 test("post and its data views", async () => {
@@ -40,13 +41,10 @@ test("post and its data views", async () => {
   );
 });
 
-test("feed lists the post on the new domain", async () => {
+test("feed is on the new domain and leaves hidden posts out", async () => {
   const { status, text } = await get("/feed.xml");
   assert.equal(status, 200);
-  assert.ok(
-    text.includes(
-      "<link>https://housefulloflove.com/blog/abandon-adulting-club</link>",
-    ),
-  );
+  assert.ok(text.includes("https://housefulloflove.com"));
+  assert.ok(!text.includes("/blog/abandon-adulting-club"));
   assert.ok(text.includes("House Full Of Love"));
 });

@@ -18,3 +18,5 @@ Later the same day, as comments on the second mockup (other pages):
 - On the blog's opening: "Suggest what all could be put here. I want to make this about positive sum and positive sum experiments as much as possible. In fact I would at some point want to call this page experiment log or something but that's just too long and restrictive"
 
 Blog opening now uses the two lines cut from the home letter. The first is trimmed from "Following which will come a log of all the experiments I run and things I do." to "A log of all the experiments I run and things I do." — flagged to him, built on his "Okay build it".
+
+14 Nov 2026: on seeing the Blog page — "Works but then hide the abandon adultinng club thingy and make it a fresh page". Experiment 1 is hidden (post.ts `hidden: true`): still reachable at its URL, unlisted on the blog, feed, sitemap and home.

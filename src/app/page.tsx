@@ -94,9 +94,9 @@ const core = [
 ] as const;
 
 // The experiment post behind a venture, where one is written.
-const thesis: Record<string, string> = {
-  "Abandon Adulting Club": "/blog/abandon-adulting-club",
-};
+// Empty while Experiment 1 is hidden (post.ts); put it back as
+// "Abandon Adulting Club": "/blog/abandon-adulting-club".
+const thesis: Record<string, string> = {};
 
 export default function Home() {
   return (

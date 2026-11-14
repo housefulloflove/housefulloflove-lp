@@ -152,3 +152,13 @@ branches prepared (not pushed) in both old repos.
 - Open: pinch was not exercised in the browser check, only wheel and drag.
   Blog opening line is a trim of his sentence; he may want his own.
 
+
+### 2026-11-14 — Experiment 1 hidden
+
+- "Hide" was read as unlist, not delete: `hidden: true` in the post's
+  post.ts, and `listed` in posts.ts feeds the blog, feed and sitemap. To
+  bring it back, remove the flag and restore the `thesis` entry in
+  src/app/page.tsx. The reading was a guess; confirm with Naman.
+- Open: the old-site redirect and anyone with the URL still reach the
+  post. The empty Blog page has no "nothing here yet" line; that is his
+  to write if wanted.

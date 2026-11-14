@@ -17,7 +17,7 @@ export const next = {
   },
   blog: {
     title: "Blog",
-    line: "Experiment 1: Abandon Adulting Club",
+    line: "A log of all the experiments I run and things I do.",
     href: "/blog",
   },
   team: {
