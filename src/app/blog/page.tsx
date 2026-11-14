@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { NextBand, next } from "@/components/next-band";
 import { ids, site } from "@/lib/site";
 import { listed as posts } from "./posts";
 
@@ -74,7 +73,6 @@ export default function BlogPage() {
           ))}
         </ul>
       )}
-      <NextBand panels={[next.core, next.team]} />
     </>
   );
 }

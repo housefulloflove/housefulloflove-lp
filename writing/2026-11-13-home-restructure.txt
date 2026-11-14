@@ -21,3 +21,4 @@ Blog opening now uses the two lines cut from the home letter. The first is trimm
 
 14 Nov 2026: on seeing the Blog page — "Works but then hide the abandon adultinng club thingy and make it a fresh page". Experiment 1 is hidden (post.ts `hidden: true`): still reachable at its URL, unlisted on the blog, feed, sitemap and home.
 14 Nov 2026: "Put some placeholder of hey x coming soon simply" — the empty Blog shows "Hey, the first post is coming soon." (wording filled in from his note; his to reword).
+14 Nov 2026: "Root blog page doesn't need a next bar" — Next band removed from /blog only.

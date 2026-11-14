@@ -159,6 +159,11 @@ test("header: links on every page but home; pages end by handing on", async () =
     const { text } = await get(p);
     assert.match(text, /<header class="head"><a class="name" href="\/">/, p);
     assert.match(text, /aria-current="page"/, p);
+    // the blog's own index ends on its list; every other page hands on
+    if (p === "/blog") {
+      assert.ok(!text.includes('class="band next"'), "Next band on /blog");
+      continue;
+    }
     assert.match(text, /<nav class="band next" aria-label="Next">/, p);
     const band = text.slice(text.indexOf('class="band next"'));
     assert.ok(!/class="door"[^>]*href="\/"/.test(band), `${p} hands on to /`);
