@@ -54,6 +54,11 @@ export default function BlogPage() {
       <p>
         The wins, the failures, the learnings, all of it shared transparently.
       </p>
+      {/* Stand-in while nothing is listed. Wording follows Naman's note
+          ("hey x coming soon simply", 14 Nov); his to reword. */}
+      {posts.length === 0 && (
+        <p className="soon">Hey, the first post is coming soon.</p>
+      )}
       {posts.length > 0 && (
         <ul className="posts">
           {posts.map((p) => (

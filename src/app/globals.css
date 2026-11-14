@@ -691,3 +691,10 @@ body {
     sans-serif;
   cursor: pointer;
 }
+
+/* The blog's stand-in line while no post is listed: body face, quieter. */
+.letter .soon {
+  margin-top: 32px;
+  color: var(--muted);
+  font-style: italic;
+}
