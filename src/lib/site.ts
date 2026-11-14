@@ -5,9 +5,10 @@ export const site = {
   name: "House Full Of Love",
   // NEXT_PUBLIC_SITE_URL lets previews override the canonical host.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://housefulloflove.com",
-  // Naman's line (writing/2026-09-03-home-letter.txt), name swapped.
+  // Naman's line (writing/2026-09-03-home-letter.txt), name swapped;
+  // "and direct services" cut at his request, 14 Nov 2026.
   description:
-    "House Full Of Love believes in doing things where everybody wins. We run multiple ventures spanning events and experiences, software products, and direct services.",
+    "House Full Of Love believes in doing things where everybody wins. We run multiple ventures spanning events and experiences and software products.",
   email: "hello@housefulloflove.com",
   legalEmail: "legal@housefulloflove.com",
   locale: "en_IN",
@@ -96,14 +97,10 @@ export const areas: readonly { name: string; detail?: string }[] = [
   { name: "Educational workshops and courses" },
   {
     name: "Software products and services",
-    // his words, 11 Oct (writing/2026-10-11-team.txt)
+    // his words, 11 Oct (writing/2026-10-11-team.txt); second sentence
+    // written by Claude at his request, 14 Nov 2026.
     detail:
-      "Clubs with digital online experiences and membership sites powering them, where AI could be used.",
-  },
-  {
-    name: "Consultation and direct services",
-    detail:
-      "Consultation and other services, direct to individuals and to businesses (B2B).",
+      "Clubs with digital online experiences and membership sites powering them, where AI could be used. We're also building a new software product of our own, not yet public.",
   },
 ] as const;
 

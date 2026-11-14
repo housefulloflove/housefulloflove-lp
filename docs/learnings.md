@@ -162,3 +162,23 @@ branches prepared (not pushed) in both old repos.
 - Open: the old-site redirect and anyone with the URL still reach the
   post. The empty Blog page has no "nothing here yet" line; that is his
   to write if wanted.
+
+### 2026-11-14 — ElevenLabs grant prep (LinkedIn, application, site)
+
+- The site was the reviewer's evidence: registrations, business email and
+  "Software products" were already there. The one liability was the
+  "Consultation and direct services" area, since the grant excludes
+  consultancies; removed from `areas` in src/lib/site.ts.
+- Went right: counting the form's limit from where his paste was cut off
+  (750 chars) instead of guessing, and keeping the application's company
+  story identical to what LinkedIn and the site show.
+- Open: "direct services" still ends his company sentence (home letterhead,
+  home "What we do", /business-info, site.description). Trimming it is a
+  reword; ask him. Slots for him: one line under "Software products and
+  services" about the unnamed new product; one line on /team that he is
+  full-time.
+- Later: Naman said "you can write on my behalf right now" for these
+  passages. Cut "and direct services" in all four places, added the
+  new-product sentence to the software area and "He works on House Full
+  Of Love full-time." on /team; each marked in a comment as written by
+  Claude at his request. Tests need `next start -p 3123` running first.
