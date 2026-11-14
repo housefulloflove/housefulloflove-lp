@@ -68,8 +68,8 @@ export default function BusinessInfo() {
         to win nobody else has to lose.
       </p>
       <p>
-        We run multiple ventures spanning events and experiences, software
-        products, and direct services.
+        We run multiple ventures spanning events and experiences and software
+        products.
       </p>
       <div className="areas">
         {areas.map((a) => (

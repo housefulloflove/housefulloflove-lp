@@ -57,6 +57,8 @@ export default function Team() {
         who wants to build a house full of love, and of products and experiences
         that truly benefit people and everyone in the ecosystem.
       </p>
+      {/* Written by Claude at Naman's request, 14 Nov 2026. */}
+      <p>He works on House Full Of Love full-time.</p>
       <p className="fine">
         <a href={author.url}>Website</a> · <a href={linkedin}>LinkedIn</a> ·{" "}
         <a href={instagram}>Instagram</a>

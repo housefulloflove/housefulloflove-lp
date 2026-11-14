@@ -111,7 +111,7 @@ export default function Home() {
       <header className="head">
         <h1>{site.name}</h1>
         <p>
-          Events and experiences, software products, and direct services ·{" "}
+          Events and experiences and software products ·{" "}
           <Link href="/business-info">Business info</Link>
         </p>
       </header>
@@ -163,8 +163,8 @@ export default function Home() {
       {/* writing/2026-09-30-company-page.txt */}
       <h2>What we do</h2>
       <p>
-        We run multiple ventures spanning events and experiences, software
-        products, and direct services.
+        We run multiple ventures spanning events and experiences and software
+        products.
       </p>
       <div className="doors">
         {[...ventures].reverse().map((v) => (
