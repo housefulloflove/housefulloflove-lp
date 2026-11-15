@@ -290,3 +290,17 @@ branches prepared (not pushed) in both old repos.
   old wobbly frame) at two widths, nothing committed. Cheaper than a
   mockup and truer. Open: his pick; in a box the name wraps to two lines
   on desktop unless the box is wider than 35rem.
+
+### Later on 2026-11-15 — home settled: centred, pen notes, bold belief
+
+- He chose the centred page as built. The hand-ruled frame is kept for
+  "other places if required", not the home letter. On phones the home page
+  is left-aligned with no box; the belief is bold, not italic.
+- Pen notes on the home links: the old HandNote look (wobbly frame, Akriti,
+  link blue, a degree off true), CSS only, `aria-describedby` on the link.
+  Fundamentals and Blog use sentences he already wrote; Contact, Business
+  Info and his own name show grey bracketed slots until he writes them.
+- Phones have no hover, so the notes never show there. If he wants them on
+  phones they need another form (a line under each link); not built.
+- Three notes arrived while a build was running; batching them into one
+  rebuild worked, but they went into one commit instead of one each.

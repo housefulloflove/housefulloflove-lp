@@ -75,11 +75,32 @@ const jsonLd = {
 // spellings fixed: "documentation of our journey", "Welcome aboard".
 // The name and the line under it are set in the hand font until his real
 // handwriting arrives; keep the text in the HTML when it does.
+// Each link carries a pen note that shows on hover or keyboard focus.
+// The notes are his sentences where he has written one (the Core's opening
+// line, the blog's line); `todo` marks a slot still waiting for his words.
 const nav = [
-  ["Fundamentals", "/fundamentals"],
-  ["Blog", "/blog"],
-  ["Contact", "/contact"],
-  ["Business Info", "/business-info"],
+  {
+    label: "Fundamentals",
+    href: "/fundamentals",
+    note: "Here is the core of our awareness towards running any and all experiments within this venture.",
+  },
+  {
+    label: "Blog",
+    href: "/blog",
+    note: "A log of all the experiments I run and things I do.",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
+    note: "[your line about writing to you]",
+    todo: true,
+  },
+  {
+    label: "Business Info",
+    href: "/business-info",
+    note: "[your line about the registrations]",
+    todo: true,
+  },
 ] as const;
 
 export default function Home() {
@@ -93,8 +114,14 @@ export default function Home() {
       <h1>{site.name}</h1>
       <p className="tag">A lab running positive sum experiments.</p>
       <p>
-        Hi, I&rsquo;m <a href={author.url}>Naman Hajela</a>, and{" "}
-        <em>I believe that for us to win, no one has to lose.</em>
+        Hi, I&rsquo;m{" "}
+        <a className="tip" href={author.url} aria-describedby="note-naman">
+          Naman Hajela
+          <span id="note-naman" role="tooltip" className="note todo">
+            [your line about yourself]
+          </span>
+        </a>
+        , and <strong>I believe that for us to win, no one has to lose.</strong>
       </p>
       <p>
         Rooted in this core win-win fundamental, we experiment and build
@@ -118,9 +145,21 @@ export default function Home() {
         Hope we leave you a little warmer and brighter through this :)
       </p>
       <nav>
-        {nav.map(([label, href]) => (
-          <Link key={href} href={href}>
-            {label}
+        {nav.map((n) => (
+          <Link
+            key={n.href}
+            href={n.href}
+            className="tip"
+            aria-describedby={`note-${n.href.slice(1)}`}
+          >
+            {n.label}
+            <span
+              id={`note-${n.href.slice(1)}`}
+              role="tooltip"
+              className={"todo" in n ? "note todo" : "note"}
+            >
+              {n.note}
+            </span>
           </Link>
         ))}
       </nav>

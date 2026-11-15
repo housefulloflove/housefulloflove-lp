@@ -731,3 +731,62 @@ body {
 .letter:has(.home) .foot {
   margin-top: 0;
 }
+
+/* A pen note over a link: the old sites' hand-ruled frame and hand font,
+   sitting a little off true. Shows on hover and keyboard focus; a phone
+   has no hover, so there the link simply works. */
+.letter .tip {
+  position: relative;
+}
+
+.letter .note {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  z-index: 10;
+  width: max-content;
+  max-width: min(270px, 80vw);
+  padding: 9px 18px 8px;
+  border: 1.5px solid var(--ink);
+  border-radius: 16px 255px 16px 225px / 225px 16px 255px 16px;
+  background: var(--paper);
+  color: var(--link);
+  font-family: var(--hand);
+  font-size: 19px;
+  font-style: normal;
+  line-height: 1.25;
+  text-align: center;
+  transform: translateX(-50%) rotate(-1.2deg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.letter .note.todo {
+  color: var(--muted);
+}
+
+.letter .tip:hover .note,
+.letter .tip:focus-visible .note {
+  opacity: 1;
+}
+
+/* On a phone the home page reads left-aligned, no box (his call, 15 Nov);
+   centred lines of uneven length are harder to follow at that width. */
+@media (max-width: 40rem) {
+  .letter:has(.home) {
+    text-align: left;
+  }
+
+  .letter .home p {
+    text-wrap: pretty;
+  }
+
+  .letter .home nav {
+    justify-content: flex-start;
+  }
+}
+
+.letter .home strong {
+  font-weight: 600;
+}
