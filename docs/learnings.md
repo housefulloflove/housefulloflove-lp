@@ -182,3 +182,21 @@ branches prepared (not pushed) in both old repos.
   new-product sentence to the software area and "He works on House Full
   Of Love full-time." on /team; each marked in a comment as written by
   Claude at his request. Tests need `next start -p 3123` running first.
+
+### 2026-11-15 — four look directions for the home page
+
+- He still did not like the plain-letter look and asked for "crazy
+  options" rooted in his philosophy. Answered with four structures, not
+  four skins (the 13 Nov lesson): a cinema "House Full" board, a payoff
+  table cut from his own letter, the eight compounding in size, and the
+  house in plan. `docs/mockups/look-options.html`, published as an artifact.
+- Went right: each idea came from a sentence or a name of his ("build this
+  on top of" became the foundation; the four people he names became table
+  rows), so no copy had to be written. The few labels of mine are listed
+  under each mockup.
+- Caught by the screenshot before sending: `.a .ticket .main p` outranked
+  the belief's own class and shrank it to body size.
+- Open: no direction is chosen. I did not ask what exactly he dislikes
+  about the current look; if none of the four lands, ask that first.
+  CSS shapes (roof, bricks, ticket notches) stand in for drawing; anything
+  that should be drawn is his.
