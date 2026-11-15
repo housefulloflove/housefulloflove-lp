@@ -219,3 +219,16 @@ branches prepared (not pushed) in both old repos.
 - Open: no direction chosen. The round-two mockup is an artifact only (it
   embeds the font and drawing as base64, so it is not committed). The plus
   mark was Positive Sum's; whether it is House Full Of Love's is his call.
+
+### Later on 2026-11-15 — he picked "the hand leads"
+
+- Of round two he wanted the version where his hand leads. Thought it
+  through as two levels (he writes the whole home page, about 110 words;
+  or only the big lines, about 25) plus a writing sheet: copy asked by
+  slot, with pen colour, line length and three ways to make it.
+- The render caught `.phone p { margin: 0 }` outranking every single-class
+  spacing rule in the mockup. Third time this session a reset beat a
+  component class; scope resets with `:where()` next time.
+- Open: which level (A or B), and his handwriting. Nothing is built in the
+  site yet; Akriti is only a stand-in. Handwritten pieces must keep real
+  text underneath (alt or visually hidden) for verifiers and the .md views.
