@@ -200,3 +200,22 @@ branches prepared (not pushed) in both old repos.
   about the current look; if none of the four lands, ask that first.
   CSS shapes (roof, bricks, ticket notches) stand in for drawing; anything
   that should be drawn is his.
+
+### Later on 2026-11-15 — round two: the hand comes back
+
+- He rejected all four ("all of them are bad"). Asked why, with options:
+  gimmicks, too loud, looks AI-made. About the live site: lifeless, and he
+  misses the old hand. "Crazy options" did not mean costumes or metaphors;
+  I should have asked what he disliked before drawing anything, which the
+  13 Nov entry already said.
+- Round two is one calm page at three settings of one dial, how much of
+  his hand shows: pens on today's letter; the old Positive Sum look whole;
+  his handwriting and drawing leading. Built only from things he made:
+  his Excalidraw plus mark (positivesumexperiments-lp/logo-trial-1.svg),
+  the Akriti font, the pens and wobbly frame, and his business-model
+  drawing. Hand-set words are all existing lines of his.
+- The old repos say font handwriting is a stand-in ("no Caveat in
+  production"). Option 3 says so plainly and asks him for real handwriting.
+- Open: no direction chosen. The round-two mockup is an artifact only (it
+  embeds the font and drawing as base64, so it is not committed). The plus
+  mark was Positive Sum's; whether it is House Full Of Love's is his call.
