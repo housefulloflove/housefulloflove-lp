@@ -275,3 +275,18 @@ branches prepared (not pushed) in both old repos.
   the footer and business-info.
 - The design spec (docs/superpowers/specs) still describes the peach
   letter; it is history now, this entry and globals.css are current.
+
+### Later on 2026-11-15 — Fundamentals, and the box question
+
+- "Rename everything to Fundamentals", then mid-task "but keep /core
+  redirecting to there": the page moved to /fundamentals (folder, .md
+  view, sitemap, llms.txt, OG eyebrow, header, footer, Next band, 404) and
+  /core, /core.md answer 308 from next.config.ts, with a test. I had
+  renamed only labels first; a rename request should prompt "the URL too?"
+  before the first build. `tsc` fails on stale `.next/types` after moving
+  a route folder until the next build.
+- "How would the letter look left aligned within a box": answered with
+  screenshots of the real page under injected CSS (no box, plain box, the
+  old wobbly frame) at two widths, nothing committed. Cheaper than a
+  mockup and truer. Open: his pick; in a box the name wraps to two lines
+  on desktop unless the box is wider than 35rem.
