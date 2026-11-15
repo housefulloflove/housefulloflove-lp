@@ -76,7 +76,7 @@ const jsonLd = {
 // The name and the line under it are set in the hand font until his real
 // handwriting arrives; keep the text in the HTML when it does.
 const nav = [
-  ["Fundamentals", "/core"],
+  ["Fundamentals", "/fundamentals"],
   ["Blog", "/blog"],
   ["Contact", "/contact"],
   ["Business Info", "/business-info"],

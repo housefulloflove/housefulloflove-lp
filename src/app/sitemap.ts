@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 // Hand-kept; later tasks append their routes here.
 const routes: string[] = [
   "/",
-  "/core",
+  "/fundamentals",
   "/blog",
   ...posts.map((p) => p.path),
   "/business-info",

@@ -43,7 +43,7 @@ const body = `# ${site.name}
 - [Terms](${site.url}/terms)
 - [Privacy](${site.url}/privacy)
 - [Refunds](${site.url}/refunds)
-- [Core](${site.url}/core)
+- [Fundamentals](${site.url}/fundamentals)
 - [Blog](${site.url}/blog)
 
 ## Ventures

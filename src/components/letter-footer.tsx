@@ -3,7 +3,7 @@ import { site } from "@/lib/site";
 
 const pages = [
   ["Blog", "/blog"],
-  ["The Core", "/core"],
+  ["Fundamentals", "/fundamentals"],
   ["Team", "/team"],
 ] as const;
 

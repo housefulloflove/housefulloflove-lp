@@ -30,3 +30,5 @@ Notes (not his words):
 - Two spellings fixed on the page and flagged to him: "documentation our journey" -> "documentation of our journey"; "Welcome abroad" -> "Welcome aboard".
 - The angle-bracket line and the last line are instructions: four links, the footer, everything centred.
 - "Fundamentals" links to /core. Only the home link is renamed so far.
+
+Later, 15 Nov: "yes rename everything to Fundamentals" and "but keep /core redirecting to there". The page is now /fundamentals; /core and /core.md redirect (308).

@@ -11,9 +11,9 @@ const abandonAdulting = ventures[1];
 export const next = {
   // his sentence from the Core page
   core: {
-    title: "The Core",
+    title: "Fundamentals",
     line: "Here is the core of our awareness towards running any and all experiments within this venture.",
-    href: "/core",
+    href: "/fundamentals",
   },
   blog: {
     title: "Blog",
