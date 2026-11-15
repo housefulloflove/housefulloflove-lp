@@ -90,8 +90,8 @@ it is absent the test logs a note and scans the generic formats only.
 | Route | Source | What it is |
 | --- | --- | --- |
 | `/` | `src/app/page.tsx` | The letter: who we are, ventures, areas |
-| `/core` | `src/app/core/page.mdx` | The Core (canonical here now) |
-| `/core.md` | `src/app/core.md/route.ts` | The Core as data |
+| `/fundamentals` | `src/app/fundamentals/page.mdx` | Fundamentals, formerly the Core; `/core` redirects here |
+| `/fundamentals.md` | `src/app/fundamentals.md/route.ts` | Fundamentals as data; `/core.md` redirects here |
 | `/blog` | `src/app/blog/page.tsx` | Index, plus the 8 principles |
 | `/blog/abandon-adulting-club` | `src/app/blog/abandon-adulting-club/page.mdx` | The first post |
 | `/blog/<slug>.md`, `.json` | `src/app/blog/[file]/route.ts` | Every post as data |

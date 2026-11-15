@@ -63,20 +63,18 @@ test("unknown path is a plain 404", async () => {
   assert.match(text, /href="\/"/);
 });
 
-test("home: letterhead, belief, letter, the eight, ventures, in order", async () => {
+test("home: name, his lines, four links, in order", async () => {
   const { text: page } = await get("/");
   const text = page.slice(page.indexOf("<h1>"));
   const at = [
     "<h1>House Full Of Love",
-    'href="/business-info"',
+    "A lab running positive sum experiments.",
     "no one has to lose.",
-    "running experiments with fundamentals",
-    "Click on any one to read more about it.",
-    'href="/core#1-play-positive-sum-games"',
-    'href="/core#8-love-before-all"',
-    "What we do",
-    "Abandon Adulting Club",
-    "Happy Mornings Club",
+    "Welcome aboard friend!",
+    'href="/fundamentals"',
+    'href="/blog"',
+    'href="/contact"',
+    'href="/business-info"',
   ].map((s) => text.indexOf(s));
   assert.ok(
     at.every((i) => i >= 0),
@@ -86,13 +84,10 @@ test("home: letterhead, belief, letter, the eight, ventures, in order", async ()
     at,
     [...at].sort((a, b) => a - b),
   );
-  const ol = text.match(/<ol[^>]*>([\s\S]*?)<\/ol>/);
-  assert.ok(ol, "no <ol>");
-  assert.equal((ol[1].match(/<li[ >]/g) ?? []).length, 8);
 });
 
 test("core headings carry the ids the home page links to", async () => {
-  const { text } = await get("/core");
+  const { text } = await get("/fundamentals");
   assert.ok(text.includes('id="1-play-positive-sum-games"'));
   assert.ok(text.includes('id="8-love-before-all"'));
 });
@@ -120,7 +115,7 @@ test("social metadata: site_name, url, large twitter card, real JSON-LD image", 
   for (const p of [
     "/",
     "/blog",
-    "/core",
+    "/fundamentals",
     "/team",
     "/blog/abandon-adulting-club",
   ]) {
@@ -155,7 +150,12 @@ test("fine-print links get a 24px tap area", async () => {
 test("header: links on every page but home; pages end by handing on", async () => {
   const home = await get("/");
   assert.ok(!/<header class="head">[\s\S]*?<nav>/.test(home.text), "nav on /");
-  for (const p of ["/blog", "/core", "/team", "/blog/abandon-adulting-club"]) {
+  for (const p of [
+    "/blog",
+    "/fundamentals",
+    "/team",
+    "/blog/abandon-adulting-club",
+  ]) {
     const { text } = await get(p);
     assert.match(text, /<header class="head"><a class="name" href="\/">/, p);
     assert.match(text, /aria-current="page"/, p);
@@ -171,7 +171,7 @@ test("header: links on every page but home; pages end by handing on", async () =
 });
 
 test("images open in the spotlight", async () => {
-  for (const p of ["/core", "/blog/abandon-adulting-club"]) {
+  for (const p of ["/fundamentals", "/blog/abandon-adulting-club"]) {
     const { text } = await get(p);
     assert.match(text, /<button type="button" class="zoom-open"/, p);
     assert.match(text, /<dialog class="zoom"/, p);

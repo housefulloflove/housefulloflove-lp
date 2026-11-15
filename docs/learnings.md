@@ -182,3 +182,137 @@ branches prepared (not pushed) in both old repos.
   new-product sentence to the software area and "He works on House Full
   Of Love full-time." on /team; each marked in a comment as written by
   Claude at his request. Tests need `next start -p 3123` running first.
+
+### 2026-11-15 — four look directions for the home page
+
+- He still did not like the plain-letter look and asked for "crazy
+  options" rooted in his philosophy. Answered with four structures, not
+  four skins (the 13 Nov lesson): a cinema "House Full" board, a payoff
+  table cut from his own letter, the eight compounding in size, and the
+  house in plan. `docs/mockups/look-options.html`, published as an artifact.
+- Went right: each idea came from a sentence or a name of his ("build this
+  on top of" became the foundation; the four people he names became table
+  rows), so no copy had to be written. The few labels of mine are listed
+  under each mockup.
+- Caught by the screenshot before sending: `.a .ticket .main p` outranked
+  the belief's own class and shrank it to body size.
+- Open: no direction is chosen. I did not ask what exactly he dislikes
+  about the current look; if none of the four lands, ask that first.
+  CSS shapes (roof, bricks, ticket notches) stand in for drawing; anything
+  that should be drawn is his.
+
+### Later on 2026-11-15 — round two: the hand comes back
+
+- He rejected all four ("all of them are bad"). Asked why, with options:
+  gimmicks, too loud, looks AI-made. About the live site: lifeless, and he
+  misses the old hand. "Crazy options" did not mean costumes or metaphors;
+  I should have asked what he disliked before drawing anything, which the
+  13 Nov entry already said.
+- Round two is one calm page at three settings of one dial, how much of
+  his hand shows: pens on today's letter; the old Positive Sum look whole;
+  his handwriting and drawing leading. Built only from things he made:
+  his Excalidraw plus mark (positivesumexperiments-lp/logo-trial-1.svg),
+  the Akriti font, the pens and wobbly frame, and his business-model
+  drawing. Hand-set words are all existing lines of his.
+- The old repos say font handwriting is a stand-in ("no Caveat in
+  production"). Option 3 says so plainly and asks him for real handwriting.
+- Open: no direction chosen. The round-two mockup is an artifact only (it
+  embeds the font and drawing as base64, so it is not committed). The plus
+  mark was Positive Sum's; whether it is House Full Of Love's is his call.
+
+### Later on 2026-11-15 — he picked "the hand leads"
+
+- Of round two he wanted the version where his hand leads. Thought it
+  through as two levels (he writes the whole home page, about 110 words;
+  or only the big lines, about 25) plus a writing sheet: copy asked by
+  slot, with pen colour, line length and three ways to make it.
+- The render caught `.phone p { margin: 0 }` outranking every single-class
+  spacing rule in the mockup. Third time this session a reset beat a
+  component class; scope resets with `:where()` next time.
+- Open: which level (A or B), and his handwriting. Nothing is built in the
+  site yet; Akriti is only a stand-in. Handwritten pieces must keep real
+  text underneath (alt or visually hidden) for verifiers and the .md views.
+
+### Later on 2026-11-15 — the direction he named himself
+
+- After three rounds of my options, his own five lines settled it
+  (writing/2026-11-15-look-direction.txt): his real hand for the home
+  header and description, the old hand font (Akriti) elsewhere, plain like
+  lossfunk.com, no peach paper, no narrow column, and new home text from
+  him. A reference site and "what is hurting us" did more than fourteen
+  mockup variants. Ask for a reference in the first message.
+- Answered with one page, not options: the artifact itself is the home
+  page at full width (white, black, blue links, default lists), then the
+  start of the Core as the inner-page sample. Slots for new words are grey
+  and in brackets.
+- My reading, unconfirmed: "old hand font everywhere else" means headings
+  and bylines in Akriti with the reading still in Newsreader, not body
+  text in Akriti. Width is 64rem, left-aligned; lossfunk has no limit.
+- Open: his new home text (asked by slot), his handwriting for the three
+  top lines, then build it in the site (globals.css paper, width, Akriti
+  from the old repo's public/fonts). The spec in docs/superpowers/specs
+  still says peach paper and one narrow column; update it when he confirms.
+
+### Later on 2026-11-15 — the lab home page, built
+
+- He sent the whole home page as text (writing/2026-11-15-home-lab.txt):
+  name, one line, six short paragraphs, four links, footer, "dead center of
+  the screen, centered". Built in the site, not as another mockup: the
+  Core list, the ventures and the letterhead left the home page.
+- Site-wide: white paper, grey rule and band instead of peach and brown,
+  column 34rem to 44rem, headings in Akriti (assets/fonts, `--hand`).
+  The home name and line use the same font until his handwriting arrives.
+- Went right: `:has(.home)` on the shared wrapper centres one page without
+  touching the layout component; `text-wrap: balance` removed the one-word
+  last lines; the page is exactly one screen at 1440x900. Screenshotted
+  home, core, team, blog and business-info at two widths after the
+  base-style change, as the 13 Nov entry asks.
+- Mine to confirm with him: two spelling fixes ("documentation of our
+  journey", "Welcome aboard"); "Fundamentals" renames only the home link,
+  while the header, footer and page still say "The Core" / "Core";
+  site.description, llms.txt and the OG card (still peach) are unchanged;
+  Team and the ventures are no longer linked from the home body, only from
+  the footer and business-info.
+- The design spec (docs/superpowers/specs) still describes the peach
+  letter; it is history now, this entry and globals.css are current.
+
+### Later on 2026-11-15 — Fundamentals, and the box question
+
+- "Rename everything to Fundamentals", then mid-task "but keep /core
+  redirecting to there": the page moved to /fundamentals (folder, .md
+  view, sitemap, llms.txt, OG eyebrow, header, footer, Next band, 404) and
+  /core, /core.md answer 308 from next.config.ts, with a test. I had
+  renamed only labels first; a rename request should prompt "the URL too?"
+  before the first build. `tsc` fails on stale `.next/types` after moving
+  a route folder until the next build.
+- "How would the letter look left aligned within a box": answered with
+  screenshots of the real page under injected CSS (no box, plain box, the
+  old wobbly frame) at two widths, nothing committed. Cheaper than a
+  mockup and truer. Open: his pick; in a box the name wraps to two lines
+  on desktop unless the box is wider than 35rem.
+
+### Later on 2026-11-15 — home settled: centred, pen notes, bold belief
+
+- He chose the centred page as built. The hand-ruled frame is kept for
+  "other places if required", not the home letter. On phones the home page
+  is left-aligned with no box; the belief is bold, not italic.
+- Pen notes on the home links: the old HandNote look (wobbly frame, Akriti,
+  link blue, a degree off true), CSS only, `aria-describedby` on the link.
+  Fundamentals and Blog use sentences he already wrote; Contact, Business
+  Info and his own name show grey bracketed slots until he writes them.
+- Phones have no hover, so the notes never show there. If he wants them on
+  phones they need another form (a line under each link); not built.
+- Three notes arrived while a build was running; batching them into one
+  rebuild worked, but they went into one commit instead of one each.
+
+### Later on 2026-11-15 — his three link notes
+
+- Asked by slot ("three lines needed"), answered in one message. All five
+  home links now carry his words. "explainatory" fixed to "explanatory".
+- "Write this in the html code and other places too for agents": the
+  business-info line lives once in `businessInfoNote` (src/lib/site.ts)
+  and appears in the home pen note, the footer link's `title` on every
+  page, a `<meta name="business-info">` on every page, and llms.txt.
+- Open: his handwriting for the name and the lab line; site.description
+  and the OG card still carry the old wording and the peach colour; the
+  branch is not merged.

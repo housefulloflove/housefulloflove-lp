@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { businessInfoNote, site } from "@/lib/site";
 
 const pages = [
   ["Blog", "/blog"],
-  ["The Core", "/core"],
+  ["Fundamentals", "/fundamentals"],
   ["Team", "/team"],
 ] as const;
 
@@ -34,7 +34,11 @@ export function LetterFooter() {
         </p>
         <p>
           {company.map(([label, href]) => (
-            <Link key={href} href={href}>
+            <Link
+              key={href}
+              href={href}
+              title={href === "/business-info" ? businessInfoNote : undefined}
+            >
               {label}
             </Link>
           ))}

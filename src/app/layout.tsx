@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Newsreader } from "next/font/google";
+import localFont from "next/font/local";
 import { LetterFooter } from "@/components/letter-footer";
 import { SiteHeader } from "@/components/site-header";
-import { site } from "@/lib/site";
+import { businessInfoNote, site } from "@/lib/site";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -12,16 +13,25 @@ const newsreader = Newsreader({
   variable: "--font-newsreader",
 });
 
+// The old sites' hand font, for headings. Stands in for Naman's real
+// handwriting on the home page.
+const akriti = localFont({
+  src: "../../assets/fonts/akriti-regular.otf",
+  variable: "--font-akriti",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: site.name, template: `%s · ${site.name}` },
   description: site.description,
   openGraph: { siteName: site.name },
+  // For agents reading the HTML of any page: where to verify the business.
+  other: { "business-info": `${businessInfoNote}: ${site.url}/business-info` },
 };
 
 export const viewport: Viewport = {
   colorScheme: "only light",
-  themeColor: "#fdf3e7",
+  themeColor: "#ffffff",
 };
 
 export default function RootLayout({
@@ -30,7 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang={site.language} className={newsreader.variable}>
+    <html
+      lang={site.language}
+      className={`${newsreader.variable} ${akriti.variable}`}
+    >
       <body>
         <div className="letter">
           <SiteHeader name={site.name} />

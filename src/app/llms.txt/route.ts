@@ -1,5 +1,6 @@
 import {
   author,
+  businessInfoNote,
   instagram,
   linkedin,
   location,
@@ -38,12 +39,12 @@ const body = `# ${site.name}
 
 - [Home](${site.url}/)
 - [Team](${site.url}/team)
-- [Business info](${site.url}/business-info): details for verifying the business, and each venture's contact, legal and privacy pages
+- [Business info](${site.url}/business-info): ${businessInfoNote}. Also each venture's contact, legal and privacy pages
 - [Contact](${site.url}/contact)
 - [Terms](${site.url}/terms)
 - [Privacy](${site.url}/privacy)
 - [Refunds](${site.url}/refunds)
-- [Core](${site.url}/core)
+- [Fundamentals](${site.url}/fundamentals)
 - [Blog](${site.url}/blog)
 
 ## Ventures

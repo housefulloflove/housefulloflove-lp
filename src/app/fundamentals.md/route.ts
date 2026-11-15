@@ -8,17 +8,17 @@ export const dynamic = "force-static";
 
 export async function GET() {
   const source = await readFile(
-    path.join(process.cwd(), "src", "app", "core", "page.mdx"),
+    path.join(process.cwd(), "src", "app", "fundamentals", "page.mdx"),
     "utf8",
   );
   const front = [
     "---",
-    'title: "Core"',
+    'title: "Fundamentals"',
     "author: Nmn",
-    `url: ${site.url}/core`,
+    `url: ${site.url}/fundamentals`,
     "---",
     "",
-    "# Core",
+    "# Fundamentals",
     "",
     "",
   ].join("\n");

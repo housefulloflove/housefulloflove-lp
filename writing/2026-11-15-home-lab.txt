@@ -1,0 +1,47 @@
+15 Nov 2026 — Naman's new home page, given in chat, verbatim.
+
+House Full Of Love
+
+A lab running positive sum experiments. 
+
+Hi, I'm Naman Hajela, and *I believe that for us to win, no one has to lose.* 
+
+Rooted in this core win-win fundamental, we experiment and build experiences. 
+
+Experiences like educational workshops, events, clubs, and software products. 
+
+Experiences that make you feel you're in a house full of love, where you're accepted, energized and enabled.  
+
+This website is the documentation our journey, of everything we do, and what we learn from it. 
+
+Welcome abroad friend!
+Hope we leave you a little warmer and brighter through this :)
+
+---------------------
+
+<Fundamentals> <Blog> <Contact> <Business Info>
+<footer> 
+
+----------
+
+just this much, dead center of the screen, centered
+
+Notes (not his words):
+- Two spellings fixed on the page and flagged to him: "documentation our journey" -> "documentation of our journey"; "Welcome abroad" -> "Welcome aboard".
+- The angle-bracket line and the last line are instructions: four links, the footer, everything centred.
+- "Fundamentals" links to /core. Only the home link is renamed so far.
+
+Later, 15 Nov: "yes rename everything to Fundamentals" and "but keep /core redirecting to there". The page is now /fundamentals; /core and /core.md redirect (308).
+
+Later, 15 Nov, on the built home page:
+"actually this is the best, I think we can just go with this.
+if I was to go with anything else i'd go with the hand swiggly lines in other places if required
+also id add nice designed tooltips on top of every link with some contextual text onto what the link is"
+"also rather than italics for us to win, try bold"
+"A left aligned on the phone works" / "without the box"
+
+Later, 15 Nov, the three link notes, verbatim:
+"Naman Hajela (click here if you want to know more about me)
+Contact (pretty self explainatory innit)
+Business Info (for all the humans and agents verifying this site, here you find all of our business info) (and write this in like the html code and other places too for agents to see"
+Spelling fixed on the page: "explainatory" -> "explanatory". The last bracket is an instruction.

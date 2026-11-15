@@ -1,0 +1,271 @@
+<title>House Full Of Love looks</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400;1,6..72,600&display=swap">
+<style>
+/* Layout: four phone-width home pages side by side, each a different structure, notes under each. */
+:root {
+  --bg: #f1efea;
+  --fg: #1a1917;
+  --quiet: #66645d;
+  --line: #d9d5cb;
+  --serif: "Newsreader", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+  --poster: "Anton", "Arial Narrow", Impact, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #171614; --fg: #ece8df; --quiet: #a09c92; --line: #37342f; color-scheme: dark }
+}
+:root[data-theme="dark"] { --bg: #171614; --fg: #ece8df; --quiet: #a09c92; --line: #37342f; color-scheme: dark }
+
+body { background: var(--bg); color: var(--fg); font-family: var(--serif); font-size: 17px; line-height: 1.5; }
+.wrap { max-width: 1560px; margin: 0 auto; padding-block: 32px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.top h1 { font-size: 30px; line-height: 1.1; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+.top p { margin: 0; max-width: 60ch; color: var(--quiet); }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px 24px; margin-top: 32px; align-items: start; }
+.opt { min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.opt > h2 { font-family: var(--mono); font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin: 0; }
+.note { font-size: 15px; line-height: 1.45; color: var(--quiet); margin: 0; }
+.note b { color: var(--fg); font-weight: 600; }
+.phone { border-radius: 14px; overflow: hidden; border: 1px solid var(--line); overflow-wrap: anywhere; }
+.phone p, .phone h3, .phone ol, .phone ul { margin: 0; padding: 0; }
+.phone ol, .phone ul { list-style: none; }
+.lk { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+/* ---------- A. House Full board ---------- */
+.a { background: #c4161c; color: #fff3d6; font-family: var(--serif); }
+.a .board { padding: 34px 20px 26px; text-align: center; border-bottom: 6px double #ffd23f; }
+.a .board .hf { font-family: var(--poster); font-size: clamp(64px, 21vw, 84px); line-height: 0.92; text-transform: uppercase; color: #ffd23f; letter-spacing: 0.01em; }
+.a .board .ol { font-style: italic; font-size: 38px; line-height: 1; margin-top: 6px; }
+.a .board .what { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 18px; opacity: 0.85; }
+.a .ticket { background: #fff3d6; color: #1a1917; margin: 24px 16px; position: relative; }
+.a .ticket .main { padding: 22px 20px 20px; }
+.a .ticket .main .belief { font-family: var(--poster); font-size: 37px; line-height: 1.02; text-transform: uppercase; color: #c4161c; margin-bottom: 16px; }
+.a .ticket p + p { margin-top: 10px; }
+.a .ticket .main p { font-size: 16px; line-height: 1.45; }
+.a .ticket .stub { border-top: 2px dashed #c4161c; padding: 12px 20px; display: flex; justify-content: space-between; gap: 12px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; position: relative; }
+.a .ticket .stub::before, .a .ticket .stub::after { content: ""; position: absolute; top: -10px; width: 18px; height: 18px; border-radius: 50%; background: #c4161c; }
+.a .ticket .stub::before { left: -9px; }
+.a .ticket .stub::after { right: -9px; }
+.a .sec { padding: 8px 20px 26px; }
+.a .sec h3 { font-family: var(--poster); font-size: 25px; text-transform: uppercase; letter-spacing: 0.03em; color: #ffd23f; font-weight: 400; margin-bottom: 10px; }
+.a .show { border-top: 1px solid rgb(255 243 214 / 0.4); padding: 14px 0; }
+.a .show strong { display: block; font-family: var(--poster); font-weight: 400; font-size: 30px; line-height: 1.05; text-transform: uppercase; }
+.a .show p { font-size: 15.5px; line-height: 1.4; margin-top: 6px; }
+.a .show .lk { font-family: var(--mono); font-size: 12px; color: #ffd23f; display: inline-block; margin-top: 8px; }
+.a .rules li { display: flex; gap: 12px; align-items: baseline; padding: 7px 0; border-top: 1px solid rgb(255 243 214 / 0.4); font-size: 17px; line-height: 1.3; }
+.a .rules li span { font-family: var(--poster); color: #ffd23f; font-size: 20px; min-width: 1ch; }
+
+/* ---------- B. The scoresheet ---------- */
+.b { background-color: #fbfbf4; background-image: linear-gradient(#dfe9dc 1px, transparent 1px), linear-gradient(90deg, #dfe9dc 1px, transparent 1px); background-size: 20px 20px; color: #14201a; font-family: var(--mono); font-size: 13.5px; line-height: 1.5; padding: 20px 20px 30px; }
+.b .hd { display: flex; justify-content: space-between; gap: 10px; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+.b .plus { font-weight: 700; font-size: 200px; line-height: 0.74; color: #0b8a43; margin: 28px 0 22px -10px; }
+.b table { width: 100%; border-collapse: collapse; background: #fbfbf4; border: 2px solid #14201a; }
+.b th, .b td { border: 1px solid #14201a; padding: 8px 9px; text-align: left; vertical-align: top; }
+.b th { font-size: 12.5px; line-height: 1.25; text-transform: uppercase; }
+.b td.w { color: #0b8a43; font-weight: 700; font-size: 20px; line-height: 1; text-align: center; vertical-align: middle; }
+.b td.l { color: #9aa39c; text-align: center; vertical-align: middle; }
+.b .letter { background: #fbfbf4; margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
+.b h3 { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin: 30px 0 8px; background: #14201a; color: #fbfbf4; display: inline-block; padding: 3px 8px; }
+.b .rows li { display: flex; gap: 10px; background: #fbfbf4; border-bottom: 1px solid #14201a; padding: 8px 0; }
+.b .rows li::before { content: "+"; color: #0b8a43; font-weight: 700; }
+.b .v { background: #fbfbf4; border: 2px solid #14201a; padding: 12px; margin-top: 10px; }
+.b .v strong { display: block; font-size: 15px; }
+.b .v .lk { color: #0b8a43; font-weight: 700; display: inline-block; margin-top: 6px; }
+
+/* ---------- C. Compounding ---------- */
+.c { background: #fdf3e7; color: #1a1917; font-family: var(--serif); padding: 26px 20px 34px; }
+.c .small { font-size: 12.5px; line-height: 1.5; color: #6b6a64; display: flex; flex-direction: column; gap: 7px; max-width: 30ch; }
+.c .small strong { color: #1a1917; letter-spacing: 0.12em; text-transform: uppercase; font-size: 11px; }
+.c .grow { margin-top: 30px; display: flex; flex-direction: column; gap: 16px; }
+.c .grow li { font-weight: 600; letter-spacing: -0.015em; line-height: 1.06; text-wrap: balance; }
+.c .grow li::after { content: ""; display: block; height: 5px; margin-top: 8px; background: currentColor; width: var(--w); }
+.c .grow li:nth-child(1) { font-size: 15px; --w: 25%; color: #1a1917; }
+.c .grow li:nth-child(2) { font-size: 18px; --w: 30%; color: #3a1716; }
+.c .grow li:nth-child(3) { font-size: 22px; --w: 37%; color: #5a1616; }
+.c .grow li:nth-child(4) { font-size: 27px; --w: 45%; color: #7b1517; }
+.c .grow li:nth-child(5) { font-size: 33px; --w: 55%; color: #9c141a; }
+.c .grow li:nth-child(6) { font-size: 40px; --w: 67%; color: #bd131d; }
+.c .grow li:nth-child(7) { font-size: 49px; --w: 82%; color: #dc1223; }
+.c .grow li:nth-child(8) { font-size: 62px; --w: 100%; color: #ff1230; }
+.c .after { margin-top: 34px; font-size: 16px; line-height: 1.45; display: flex; flex-direction: column; gap: 12px; }
+.c .after .lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #6b6a64; }
+.c .after strong { font-weight: 600; }
+.c .lk { color: #ff1230; }
+
+/* ---------- D. The house, in plan ---------- */
+.d { background: #0b2bd6; color: #fdf3e7; font-family: var(--serif); padding: 22px 16px 26px; }
+.d .tag { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.75; display: block; margin-bottom: 8px; }
+.d .roof { background: #fdf3e7; color: #0b2bd6; clip-path: polygon(50% 0, 100% 100%, 0 100%); padding: 74px 20px 16px; text-align: center; font-weight: 600; font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.25; }
+.d .house { border: 3px solid #fdf3e7; border-top-width: 6px; }
+.d .room { padding: 16px 14px 18px; border-bottom: 3px solid #fdf3e7; }
+.d .belief { font-size: 38px; line-height: 1.04; font-weight: 600; letter-spacing: -0.02em; }
+.d .hall p { font-size: 15.5px; line-height: 1.45; }
+.d .hall p + p { margin-top: 9px; }
+.d .pair { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 3px solid #fdf3e7; }
+.d .pair .room { border-bottom: 0; display: flex; flex-direction: column; min-width: 0; }
+.d .pair .room + .room { border-left: 3px solid #fdf3e7; }
+.d .pair h3 { font-size: 21px; line-height: 1.08; font-weight: 600; }
+.d .pair p { font-size: 13.5px; line-height: 1.35; margin: 8px 0 14px; }
+.d .door { margin-top: auto; align-self: flex-start; border: 2px solid #fdf3e7; border-bottom: 0; border-radius: 2em 2em 0 0; padding: 16px 10px 8px; margin-bottom: -18px; font-family: var(--mono); font-size: 9.5px; line-height: 1.3; max-width: 100%; }
+.d .trio { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 3px solid #fdf3e7; }
+.d .trio span { padding: 14px 6px; text-align: center; font-size: 15px; min-width: 0; }
+.d .trio span + span { border-left: 3px solid #fdf3e7; }
+.d .found { padding: 16px 14px 6px; }
+.d .found > p { font-size: 15px; line-height: 1.4; margin-bottom: 12px; }
+.d .found li { background: #fdf3e7; color: #0b2bd6; font-weight: 600; font-size: 16px; line-height: 1.25; padding: 9px 11px; margin-bottom: 4px; }
+.d .found li:nth-child(even) { margin-left: 14px; margin-right: -14px; }
+.d .found li:nth-child(odd) { margin-right: 14px; margin-left: -14px; }
+.d .found ol { padding: 0 14px; }
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <h1>Four looks for the home page</h1>
+    <p>Each one is a different structure, not a restyle of the letter. Every sentence is yours, unchanged. The notes under each say which labels I added.</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- A -->
+    <section class="opt">
+      <h2>A · House Full board</h2>
+      <div class="phone a">
+        <div class="board">
+          <p class="hf">House Full</p>
+          <p class="ol">of Love</p>
+          <p class="what">Events and experiences and software products</p>
+        </div>
+        <div class="ticket">
+          <div class="main">
+            <p class="belief">For us to win, no one has to lose.</p>
+            <p>Hi I’m <span class="lk">Naman</span>, and I’m running experiments with fundamentals rooted in this positive sum philosophy.</p>
+            <p>My goal is to enable everyone involved in each of my initiatives, the customers of course, my team, myself, and the wider world.</p>
+            <p><em>~ Nmn</em></p>
+          </div>
+          <div class="stub"><span>UDYAM-MP-23-•••8816</span><span>INDORE</span></div>
+        </div>
+        <div class="sec">
+          <h3>Now showing</h3>
+          <div class="show"><strong>Abandon Adulting Club</strong><p>An events and experiences company that helps people unlock play and enjoy life.</p><span class="lk">abandonadulting.club →</span></div>
+          <div class="show"><strong>Happy Mornings Club</strong><p>A club that helps people wake up early and build a morning routine habit.</p><span class="lk">happymornings.club →</span></div>
+        </div>
+        <div class="sec">
+          <h3>The Core</h3>
+          <ol class="rules">
+            <li><span>1</span>Play positive sum games.</li>
+            <li><span>2</span>Respect time above all else.</li>
+            <li><span>3</span>Strive to give out disproportionate value.</li>
+            <li><span>4</span>Have audacious intent, and patient persistence.</li>
+            <li><span>5</span>Play with the power laws.</li>
+            <li><span>6</span>Compounding shall be your best friend.</li>
+            <li><span>7</span>Sincerity over Seriousness</li>
+            <li><span>8</span>Love before all.</li>
+          </ol>
+        </div>
+      </div>
+      <p class="note"><b>The idea:</b> “House Full” is the board a cinema hangs out when every seat is taken. The name already says it, so the site becomes the board, the ticket and the listings. <b>Rooted in:</b> sincerity over seriousness, and the name itself. <b>Mine:</b> the label “Now showing”, and using the masked Udyam number as the ticket serial.</p>
+    </section>
+
+    <!-- B -->
+    <section class="opt">
+      <h2>B · The scoresheet</h2>
+      <div class="phone b">
+        <div class="hd"><span>House Full Of Love</span><span>Business info</span></div>
+        <p class="plus" aria-hidden="true">+</p>
+        <table>
+          <tr><th></th><th>For us to win,</th><th>no one has to lose.</th></tr>
+          <tr><td>the customers</td><td class="w">+</td><td class="l">·</td></tr>
+          <tr><td>my team</td><td class="w">+</td><td class="l">·</td></tr>
+          <tr><td>myself</td><td class="w">+</td><td class="l">·</td></tr>
+          <tr><td>the wider world</td><td class="w">+</td><td class="l">·</td></tr>
+        </table>
+        <div class="letter">
+          <p>Hi I’m <span class="lk">Naman</span>, and I’m running experiments with fundamentals rooted in this positive sum philosophy.</p>
+          <p>My goal is to enable everyone involved in each of my initiatives, the customers of course, my team, myself, and the wider world.</p>
+          <p>~ Nmn</p>
+        </div>
+        <h3>The Core</h3>
+        <ol class="rows">
+          <li>Play positive sum games.</li>
+          <li>Respect time above all else.</li>
+          <li>Strive to give out disproportionate value.</li>
+          <li>Have audacious intent, and patient persistence.</li>
+          <li>Play with the power laws.</li>
+          <li>Compounding shall be your best friend.</li>
+          <li>Sincerity over Seriousness</li>
+          <li>Love before all.</li>
+        </ol>
+        <h3>What we do</h3>
+        <div class="v"><strong>Abandon Adulting Club</strong>An events and experiences company that helps people unlock play and enjoy life.<br><span class="lk">abandonadulting.club →</span></div>
+        <div class="v"><strong>Happy Mornings Club</strong>A club that helps people wake up early and build a morning routine habit.<br><span class="lk">happymornings.club →</span></div>
+      </div>
+      <p class="note"><b>The idea:</b> the belief drawn as the payoff table of a game. Your two half-sentences are the column heads, the four people you name are the rows, and every row wins. The plus is the logo, and the green pen that validates comes back. <b>Rooted in:</b> play positive sum games. <b>Mine:</b> nothing, the table is cut from your letter.</p>
+    </section>
+
+    <!-- C -->
+    <section class="opt">
+      <h2>C · Compounding</h2>
+      <div class="phone c">
+        <div class="small">
+          <strong>House Full Of Love</strong>
+          <p>For us to win, no one has to lose.</p>
+          <p>I have a few core principles I want to build this on top of, they’re listed below. Read them first to understand how we operate.</p>
+          <p><em>~ Nmn</em></p>
+        </div>
+        <ol class="grow">
+          <li>Play positive sum games.</li>
+          <li>Respect time above all else.</li>
+          <li>Strive to give out disproportionate value.</li>
+          <li>Have audacious intent, and patient persistence.</li>
+          <li>Play with the power laws.</li>
+          <li>Compounding shall be your best friend.</li>
+          <li>Sincerity over Seriousness</li>
+          <li>Love before all.</li>
+        </ol>
+        <div class="after">
+          <span class="lbl">What we do</span>
+          <p><strong>Abandon Adulting Club.</strong> An events and experiences company that helps people unlock play and enjoy life. <span class="lk">abandonadulting.club →</span></p>
+          <p><strong>Happy Mornings Club.</strong> A club that helps people wake up early and build a morning routine habit. <span class="lk">happymornings.club →</span></p>
+        </div>
+      </div>
+      <p class="note"><b>The idea:</b> the page starts as a whisper and compounds. Each principle is 22% larger than the one before, and the bar under it is the same curve drawn to scale, so the eighth is four times the first and “Love before all.” fills the screen. Keeps Newsreader and the paper. <b>Rooted in:</b> compounding, power laws, love before all. <b>Mine:</b> nothing.</p>
+    </section>
+
+    <!-- D -->
+    <section class="opt">
+      <h2>D · The house, in plan</h2>
+      <div class="phone d">
+        <div class="roof">House Full<br>Of Love</div>
+        <div class="house">
+          <div class="room"><span class="tag">Attic</span><p class="belief">For us to win, no one has to lose.</p></div>
+          <div class="room hall">
+            <span class="tag">Hall</span>
+            <p>Hi I’m <span class="lk">Naman</span>, and I’m running experiments with fundamentals rooted in this positive sum philosophy.</p>
+            <p>I have a few core principles I want to build this on top of, they’re listed below. Read them first to understand how we operate.</p>
+            <p><em>~ Nmn</em></p>
+          </div>
+          <div class="pair">
+            <div class="room"><span class="tag">Room</span><h3>Abandon Adulting Club</h3><p>An events and experiences company that helps people unlock play and enjoy life.</p><span class="door">abandon<wbr>adulting<wbr>.club</span></div>
+            <div class="room"><span class="tag">Room</span><h3>Happy Mornings Club</h3><p>A club that helps people wake up early and build a morning routine habit.</p><span class="door">happy<wbr>mornings<wbr>.club</span></div>
+          </div>
+          <div class="trio"><span class="lk">Blog</span><span class="lk">Team</span><span class="lk">Business info</span></div>
+          <div class="found">
+            <span class="tag">Foundation · The Core</span>
+            <ol>
+              <li>Play positive sum games.</li>
+              <li>Respect time above all else.</li>
+              <li>Strive to give out disproportionate value.</li>
+              <li>Have audacious intent, and patient persistence.</li>
+              <li>Play with the power laws.</li>
+              <li>Compounding shall be your best friend.</li>
+              <li>Sincerity over Seriousness</li>
+              <li>Love before all.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <p class="note"><b>The idea:</b> the site is a house. Roof is the name, each venture is a room with a door out (the arch from your 404 page), and the eight principles are the bricks everything stands on, in your link blue as a blueprint. <b>Rooted in:</b> “a few core principles I want to build this on top of”. <b>Mine:</b> the small tags Attic, Hall, Room, Foundation. The roof and bricks are CSS shapes; any real drawing stays yours.</p>
+    </section>
+
+  </div>
+</div>
