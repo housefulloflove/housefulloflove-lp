@@ -232,3 +232,23 @@ branches prepared (not pushed) in both old repos.
 - Open: which level (A or B), and his handwriting. Nothing is built in the
   site yet; Akriti is only a stand-in. Handwritten pieces must keep real
   text underneath (alt or visually hidden) for verifiers and the .md views.
+
+### Later on 2026-11-15 — the direction he named himself
+
+- After three rounds of my options, his own five lines settled it
+  (writing/2026-11-15-look-direction.txt): his real hand for the home
+  header and description, the old hand font (Akriti) elsewhere, plain like
+  lossfunk.com, no peach paper, no narrow column, and new home text from
+  him. A reference site and "what is hurting us" did more than fourteen
+  mockup variants. Ask for a reference in the first message.
+- Answered with one page, not options: the artifact itself is the home
+  page at full width (white, black, blue links, default lists), then the
+  start of the Core as the inner-page sample. Slots for new words are grey
+  and in brackets.
+- My reading, unconfirmed: "old hand font everywhere else" means headings
+  and bylines in Akriti with the reading still in Newsreader, not body
+  text in Akriti. Width is 64rem, left-aligned; lossfunk has no limit.
+- Open: his new home text (asked by slot), his handwriting for the three
+  top lines, then build it in the site (globals.css paper, width, Akriti
+  from the old repo's public/fonts). The spec in docs/superpowers/specs
+  still says peach paper and one narrow column; update it when he confirms.
