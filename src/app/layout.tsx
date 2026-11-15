@@ -3,7 +3,7 @@ import { Newsreader } from "next/font/google";
 import localFont from "next/font/local";
 import { LetterFooter } from "@/components/letter-footer";
 import { SiteHeader } from "@/components/site-header";
-import { site } from "@/lib/site";
+import { businessInfoNote, site } from "@/lib/site";
 import "./globals.css";
 
 const newsreader = Newsreader({
@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   title: { default: site.name, template: `%s · ${site.name}` },
   description: site.description,
   openGraph: { siteName: site.name },
+  // For agents reading the HTML of any page: where to verify the business.
+  other: { "business-info": `${businessInfoNote}: ${site.url}/business-info` },
 };
 
 export const viewport: Viewport = {

@@ -304,3 +304,15 @@ branches prepared (not pushed) in both old repos.
   phones they need another form (a line under each link); not built.
 - Three notes arrived while a build was running; batching them into one
   rebuild worked, but they went into one commit instead of one each.
+
+### Later on 2026-11-15 — his three link notes
+
+- Asked by slot ("three lines needed"), answered in one message. All five
+  home links now carry his words. "explainatory" fixed to "explanatory".
+- "Write this in the html code and other places too for agents": the
+  business-info line lives once in `businessInfoNote` (src/lib/site.ts)
+  and appears in the home pen note, the footer link's `title` on every
+  page, a `<meta name="business-info">` on every page, and llms.txt.
+- Open: his handwriting for the name and the lab line; site.description
+  and the OG card still carry the old wording and the peach colour; the
+  branch is not merged.

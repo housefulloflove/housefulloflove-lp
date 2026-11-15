@@ -762,10 +762,6 @@ body {
   transition: opacity 0.15s ease;
 }
 
-.letter .note.todo {
-  color: var(--muted);
-}
-
 .letter .tip:hover .note,
 .letter .tip:focus-visible .note {
   opacity: 1;

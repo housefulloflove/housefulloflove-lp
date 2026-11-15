@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   author,
+  businessInfoNote,
   ids,
   instagram,
   linkedin,
@@ -76,8 +77,9 @@ const jsonLd = {
 // The name and the line under it are set in the hand font until his real
 // handwriting arrives; keep the text in the HTML when it does.
 // Each link carries a pen note that shows on hover or keyboard focus.
-// The notes are his sentences where he has written one (the Core's opening
-// line, the blog's line); `todo` marks a slot still waiting for his words.
+// The notes are his: two sentences from the site (the Core's opening line,
+// the blog's line) and three he sent on 15 Nov ("explainatory" spelled
+// "explanatory").
 const nav = [
   {
     label: "Fundamentals",
@@ -92,14 +94,12 @@ const nav = [
   {
     label: "Contact",
     href: "/contact",
-    note: "[your line about writing to you]",
-    todo: true,
+    note: "pretty self explanatory innit",
   },
   {
     label: "Business Info",
     href: "/business-info",
-    note: "[your line about the registrations]",
-    todo: true,
+    note: businessInfoNote,
   },
 ] as const;
 
@@ -117,8 +117,8 @@ export default function Home() {
         Hi, I&rsquo;m{" "}
         <a className="tip" href={author.url} aria-describedby="note-naman">
           Naman Hajela
-          <span id="note-naman" role="tooltip" className="note todo">
-            [your line about yourself]
+          <span id="note-naman" role="tooltip" className="note">
+            click here if you want to know more about me
           </span>
         </a>
         , and <strong>I believe that for us to win, no one has to lose.</strong>
@@ -156,7 +156,7 @@ export default function Home() {
             <span
               id={`note-${n.href.slice(1)}`}
               role="tooltip"
-              className={"todo" in n ? "note todo" : "note"}
+              className="note"
             >
               {n.note}
             </span>

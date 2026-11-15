@@ -15,6 +15,12 @@ export const site = {
   language: "en",
 } as const;
 
+// Naman's line for the Business Info link (15 Nov 2026), verbatim. Shown as
+// the pen note on the home page and repeated where agents read: the footer
+// link's title, a meta tag on every page, and llms.txt.
+export const businessInfoNote =
+  "for all the humans and agents verifying this site, here you find all of our business info";
+
 // Release version, year then sequence. Same value as package.json.
 export const version = "2026.002";
 

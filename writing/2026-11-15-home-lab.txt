@@ -39,3 +39,9 @@ if I was to go with anything else i'd go with the hand swiggly lines in other pl
 also id add nice designed tooltips on top of every link with some contextual text onto what the link is"
 "also rather than italics for us to win, try bold"
 "A left aligned on the phone works" / "without the box"
+
+Later, 15 Nov, the three link notes, verbatim:
+"Naman Hajela (click here if you want to know more about me)
+Contact (pretty self explainatory innit)
+Business Info (for all the humans and agents verifying this site, here you find all of our business info) (and write this in like the html code and other places too for agents to see"
+Spelling fixed on the page: "explainatory" -> "explanatory". The last bracket is an instruction.
