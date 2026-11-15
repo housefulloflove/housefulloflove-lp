@@ -1,0 +1,32 @@
+15 Nov 2026 — Naman's new home page, given in chat, verbatim.
+
+House Full Of Love
+
+A lab running positive sum experiments. 
+
+Hi, I'm Naman Hajela, and *I believe that for us to win, no one has to lose.* 
+
+Rooted in this core win-win fundamental, we experiment and build experiences. 
+
+Experiences like educational workshops, events, clubs, and software products. 
+
+Experiences that make you feel you're in a house full of love, where you're accepted, energized and enabled.  
+
+This website is the documentation our journey, of everything we do, and what we learn from it. 
+
+Welcome abroad friend!
+Hope we leave you a little warmer and brighter through this :)
+
+---------------------
+
+<Fundamentals> <Blog> <Contact> <Business Info>
+<footer> 
+
+----------
+
+just this much, dead center of the screen, centered
+
+Notes (not his words):
+- Two spellings fixed on the page and flagged to him: "documentation our journey" -> "documentation of our journey"; "Welcome abroad" -> "Welcome aboard".
+- The angle-bracket line and the last line are instructions: four links, the footer, everything centred.
+- "Fundamentals" links to /core. Only the home link is renamed so far.
