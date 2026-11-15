@@ -252,3 +252,26 @@ branches prepared (not pushed) in both old repos.
   top lines, then build it in the site (globals.css paper, width, Akriti
   from the old repo's public/fonts). The spec in docs/superpowers/specs
   still says peach paper and one narrow column; update it when he confirms.
+
+### Later on 2026-11-15 — the lab home page, built
+
+- He sent the whole home page as text (writing/2026-11-15-home-lab.txt):
+  name, one line, six short paragraphs, four links, footer, "dead center of
+  the screen, centered". Built in the site, not as another mockup: the
+  Core list, the ventures and the letterhead left the home page.
+- Site-wide: white paper, grey rule and band instead of peach and brown,
+  column 34rem to 44rem, headings in Akriti (assets/fonts, `--hand`).
+  The home name and line use the same font until his handwriting arrives.
+- Went right: `:has(.home)` on the shared wrapper centres one page without
+  touching the layout component; `text-wrap: balance` removed the one-word
+  last lines; the page is exactly one screen at 1440x900. Screenshotted
+  home, core, team, blog and business-info at two widths after the
+  base-style change, as the 13 Nov entry asks.
+- Mine to confirm with him: two spelling fixes ("documentation of our
+  journey", "Welcome aboard"); "Fundamentals" renames only the home link,
+  while the header, footer and page still say "The Core" / "Core";
+  site.description, llms.txt and the OG card (still peach) are unchanged;
+  Team and the ventures are no longer linked from the home body, only from
+  the footer and business-info.
+- The design spec (docs/superpowers/specs) still describes the peach
+  letter; it is history now, this entry and globals.css are current.
