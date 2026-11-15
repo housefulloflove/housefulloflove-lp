@@ -63,20 +63,18 @@ test("unknown path is a plain 404", async () => {
   assert.match(text, /href="\/"/);
 });
 
-test("home: letterhead, belief, letter, the eight, ventures, in order", async () => {
+test("home: name, his lines, four links, in order", async () => {
   const { text: page } = await get("/");
   const text = page.slice(page.indexOf("<h1>"));
   const at = [
     "<h1>House Full Of Love",
-    'href="/business-info"',
+    "A lab running positive sum experiments.",
     "no one has to lose.",
-    "running experiments with fundamentals",
-    "Click on any one to read more about it.",
-    'href="/core#1-play-positive-sum-games"',
-    'href="/core#8-love-before-all"',
-    "What we do",
-    "Abandon Adulting Club",
-    "Happy Mornings Club",
+    "Welcome aboard friend!",
+    'href="/core"',
+    'href="/blog"',
+    'href="/contact"',
+    'href="/business-info"',
   ].map((s) => text.indexOf(s));
   assert.ok(
     at.every((i) => i >= 0),
@@ -86,9 +84,6 @@ test("home: letterhead, belief, letter, the eight, ventures, in order", async ()
     at,
     [...at].sort((a, b) => a - b),
   );
-  const ol = text.match(/<ol[^>]*>([\s\S]*?)<\/ol>/);
-  assert.ok(ol, "no <ol>");
-  assert.equal((ol[1].match(/<li[ >]/g) ?? []).length, 8);
 });
 
 test("core headings carry the ids the home page links to", async () => {
